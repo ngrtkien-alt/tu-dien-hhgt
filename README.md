@@ -1,6 +1,6 @@
 # Từ điển thuật ngữ Anh–Việt · Hình học giải tích
 
-Website tĩnh (HTML + CSS + JavaScript thuần), không cần máy chủ, không cần cài đặt. 284 mục từ, tra cứu EN/VI không dấu, bảng tra A–Z hai chiều, lọc theo chương/mục, chế độ sáng/tối, in / lưu PDF, mô hình mặt bậc hai 3D, flashcard.
+Website tĩnh (HTML + CSS + JavaScript thuần), không cần máy chủ, không cần cài đặt. 284 mục từ. Trang đầu là “Quy ước & nguồn”; gõ vào ô tìm kiếm (EN hoặc VI, không cần dấu) để hiện gợi ý, bấm gợi ý hoặc nhấn Enter để mở trang riêng của thuật ngữ (định nghĩa, ví dụ, mô hình 3D với các mặt bậc hai, liên quan, nguồn, danh sách cùng mục). Có thêm bảng tra A–Z hai chiều, lọc theo chương/mục, chế độ sáng/tối, in / lưu PDF, flashcard.
 
 ## Các file
 

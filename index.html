@@ -133,7 +133,7 @@ main{padding-block:26px 64px}
 .entries{border-top:1px solid var(--rule)}
 .entry{border-bottom:1px solid var(--rule)}
 .entry.open{background:var(--paper-2)}
-.entry-row{display:grid;grid-template-columns:3.6rem minmax(0,1fr) auto;gap:10px;align-items:start;padding-inline:8px}
+.entry-row{--numw:3.6rem;--gap:10px;display:grid;grid-template-columns:var(--numw) minmax(0,1fr) auto;gap:var(--gap);align-items:start;padding-inline:8px}
 .num{font-family:var(--f-mono);font-size:.76rem;color:var(--accent);padding-top:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
 .toggle{background:none;border:0;text-align:left;cursor:pointer;padding:.7rem 0;min-width:0;display:block;width:100%}
 .terms{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
@@ -263,7 +263,7 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
   .mast .inner{grid-template-columns:1fr}
   .mast-fig{display:none}
   .search kbd{display:none}
-  .entry-row{grid-template-columns:2.9rem minmax(0,1fr) auto;gap:6px;padding-inline:4px}
+  .entry-row{--numw:2.9rem;--gap:6px;padding-inline:4px}
   .terms{flex-direction:column;align-items:flex-start;gap:1px}
   .arrow{display:none}
   .vi::before{content:"→ ";font-family:var(--f-mono);font-size:.8rem;color:var(--ink-2)}
@@ -284,7 +284,7 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
   .bar-row{gap:6px}
   .seg button{padding:.5rem .5rem}
   .iconbtn{width:2.2rem}
-  .entry-row{grid-template-columns:2.5rem minmax(0,1fr) auto}
+  .entry-row{--numw:2.5rem}
   .en{font-size:1.15rem}
 }
 @media print{
@@ -322,6 +322,98 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
   body.print-one .entry:not(.printing),body.print-one .chap-h,body.print-one .sec-h,body.print-one .toolbar{display:none!important}
 }
 
+/* ---------- chữ "No" ---------- */
+.no-o{font-size:.8em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em;margin-left:.03em}
+
+/* ---------- đầu trang gọn khi không ở trang chủ ---------- */
+body[data-view]:not([data-view="about"]) .mast{padding-block:14px 12px}
+body[data-view]:not([data-view="about"]) .mast .inner{grid-template-columns:minmax(0,1fr)}
+body[data-view]:not([data-view="about"]) :is(.mast-sub,.stats,.mast-fig,.mast-meta){display:none}
+body[data-view]:not([data-view="about"]) .kicker{margin-bottom:4px}
+body[data-view]:not([data-view="about"]) .mast h1{font-size:clamp(1.45rem,3.2vw,2rem)}
+body[data-view]:not([data-view="about"]) .mast h1 br{display:none}
+body[data-view]:not([data-view="about"]) .mast h1 em::before{content:" "}
+
+/* ---------- hàng danh sách = liên kết ---------- */
+.rowlink{grid-column:1/3;display:grid;grid-template-columns:var(--numw) minmax(0,1fr);column-gap:var(--gap);color:inherit;text-decoration:none;min-width:0}
+.rowmain{display:block;padding:.7rem 0;min-width:0}
+.rowlink:hover .terms .en{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.entry:hover{background:var(--paper-2)}
+
+/* ---------- gợi ý khi gõ ---------- */
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--paper);border:1px solid var(--ink);box-shadow:4px 4px 0 var(--muted);z-index:40;max-height:min(70vh,540px);overflow:auto}
+.sg-item{display:grid;grid-template-columns:3.4rem minmax(0,1fr);column-gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);padding:.55rem .75rem;cursor:pointer;align-items:baseline}
+.sg-item:hover,.sg-item[aria-selected="true"]{background:var(--paper-2)}
+.sg-item .num{padding-top:0}
+.sg-t{display:flex;flex-wrap:wrap;gap:0 8px;align-items:baseline;min-width:0}
+.sg-t .en{font-size:1.1rem}
+.sg-t .vi{font-size:.95rem}
+.sg-meta{grid-column:2;font-family:var(--f-mono);font-size:.66rem;color:var(--ink-2);margin-top:1px}
+.sg-all{display:block;width:100%;text-align:left;background:var(--paper-2);border:0;padding:.65rem .75rem;font-family:var(--f-mono);font-size:.78rem;cursor:pointer;color:var(--accent)}
+.sg-all:hover{text-decoration:underline}
+.sg-none{padding:.8rem .75rem;color:var(--ink-2);font-size:.92rem}
+
+/* ---------- trang riêng của thuật ngữ ---------- */
+.crumbs{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-family:var(--f-mono);font-size:.74rem;color:var(--ink-2);margin:0 0 20px}
+.crumbs button{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px;text-align:left}
+.crumbs .sep{opacity:.6}
+.ep-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:44px;align-items:start}
+.ep-main{min-width:0}
+.ep-head{border-bottom:3px double var(--ink);padding-bottom:18px;margin-bottom:6px}
+.ep-kick{font-family:var(--f-mono);font-size:.76rem;color:var(--accent);margin:0 0 8px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.ep-kick .num{padding-top:0}
+.ep-en{font-family:var(--f-display);font-weight:500;font-size:clamp(2.1rem,5.4vw,3.4rem);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em;overflow-wrap:anywhere}
+.ep-en .var{font-size:.5em;margin-left:.2em}
+.ep-vi{font-size:clamp(1.3rem,2.8vw,1.8rem);font-weight:600;margin:10px 0 0;line-height:1.3;overflow-wrap:anywhere}
+.ep-vi .var{font-size:.62em;font-weight:400;margin-left:.2em}
+.ep-head .actions{margin-top:16px}
+.ep-sec{margin-top:26px}
+.ep-sec .lbl{font-size:.7rem;margin-bottom:8px}
+.ep-sec .para{font-size:1.04rem;max-width:none}
+.ep-sec.ex .para{font-size:1rem}
+.ep-sec .meta{margin-top:0;padding-top:0;border-top:0}
+.ep-pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px;border-top:1px solid var(--rule);padding-top:16px}
+.ep-pn a{display:block;border:1px solid var(--rule);padding:.6rem .8rem;color:inherit;text-decoration:none;min-width:0}
+.ep-pn a:hover{border-color:var(--ink)}
+.ep-pn .dir{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.ep-pn .nx{text-align:right}
+.ep-side{position:sticky;top:calc(var(--bar-h) + env(safe-area-inset-top,0px) + 18px);max-height:calc(100vh - var(--bar-h) - 40px);max-height:calc(100dvh - var(--bar-h) - 40px);overflow:auto;background:var(--paper-2);border:1px solid var(--rule);padding:14px 12px 16px}
+.ep-side h2{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 2px;font-weight:500}
+.ep-side .side-t{font-family:var(--f-display);font-size:1.08rem;margin:0 0 10px;line-height:1.3}
+.ep-side ul{list-style:none;margin:0;padding:0}
+.ep-side a{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:4px;padding:.3rem .4rem;color:var(--ink-2);text-decoration:none;font-size:.9rem;line-height:1.35}
+.ep-side a small{display:block;font-size:.8rem;opacity:.85}
+.ep-side a:hover{color:var(--ink);background:var(--paper)}
+.ep-side a[aria-current="true"]{color:var(--ink);background:var(--paper);box-shadow:inset 2px 0 0 var(--ink);font-weight:500}
+.ep-side .num{padding-top:.1rem;font-size:.72rem}
+.q3d .q-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+.btn[aria-pressed="true"] svg{fill:currentColor}
+
+/* ---------- trang chủ (Quy ước & nguồn) ---------- */
+.start{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 26px}
+.start .btn{padding:.6rem 1rem;font-size:.82rem}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.srcs{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.srcs li{border-bottom:1px solid var(--rule);padding:.65rem 0;font-size:.97rem}
+.srcs b{font-weight:600}
+
+@media (max-width:960px){
+  .ep-grid{grid-template-columns:minmax(0,1fr);gap:30px}
+  .ep-side{position:static;max-height:none}
+}
+@media (max-width:700px){
+  .ep-pn{grid-template-columns:1fr}
+  .sugg{right:auto;width:calc(100vw - 32px)}
+  .ep-pn .nx{text-align:left}
+}
+@media print{
+  .crumbs,.ep-side,.ep-pn,.q3d,.sugg,.start{display:none!important}
+  .ep-grid{display:block}
+  .ep-head{border-bottom:1px solid #000}
+  .ep-en{font-size:22pt}.ep-vi{font-size:14pt}
+  .ep-sec .para{font-size:10.5pt}
+  body[data-view]:not([data-view="about"]) .mast{padding-block:0 6px}
+}
 </style>
 </head>
 <body>
@@ -337,7 +429,7 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
     </div>
     <figure class="mast-fig" aria-hidden="true">
       <canvas id="mastCanvas" width="180" height="180"></canvas>
-      <figcaption>hyperboloid of one sheet · № 258</figcaption>
+      <figcaption>hyperboloid of one sheet · N<span class="no-o">o</span> 258</figcaption>
     </figure>
   </div>
 </header>
@@ -347,9 +439,10 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
     <div class="bar-row">
       <div class="search">
         <svg viewBox="0 0 24 24" stroke-width="2" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-        <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Tìm kiếm">
+        <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Tìm kiếm" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugg">
         <kbd id="kbdHint">/</kbd>
         <button class="clear" id="qClear" hidden aria-label="Xoá">✕</button>
+        <div class="sugg" id="sugg" role="listbox" hidden></div>
       </div>
       <div class="seg" role="group" aria-label="Ngôn ngữ giao diện">
         <button id="langVi" aria-pressed="true">VI</button><button id="langEn" aria-pressed="false">EN</button>
@@ -379,7 +472,7 @@ const T = {
     title:'Từ điển thuật ngữ<br><em>Anh – Việt</em>',
     sub:"Chương 1 · Đại số vectơ — Chương 2 · Phương pháp tọa độ trên mặt phẳng — Chương 3 · Phương pháp tọa độ trong không gian",
     sEntries:"mục từ", sEn:"thuật ngữ EN", sVi:"thuật ngữ VI", sChap:"chương",
-    ph:"Tìm EN / VI, không cần dấu…",
+    ph:"Tìm EN / VI…",
     tabs:{browse:"Tra cứu",index:"Bảng tra A–Z",quadrics:"Mặt bậc hai 3D",cards:"Flashcard",saved:"Đã lưu",about:"Quy ước & nguồn"},
     contents:"Mục lục", all:"Tất cả", chapter:"Chương", entries:"mục",
     showing:(n)=>`${n} mục`, results:(n,q)=>`${n} kết quả cho “${q}”`,
@@ -389,6 +482,9 @@ const T = {
     speak:"Phát âm", copy:"Sao chép", copied:"Đã sao chép", save:"Lưu", unsave:"Bỏ lưu",
     savedT:"Đã lưu vào danh sách", removedT:"Đã bỏ khỏi danh sách", view3d:"Xem mô hình 3D",
     inDef:"khớp trong định nghĩa", chShort:"Ch.",
+    sgAll:(n)=>`Xem tất cả ${n} kết quả →`, sameSec:"Cùng mục", prev:"Trước", next:"Sau", model3d:"Mô hình 3D", copyLink:"Sao chép liên kết", linkCopied:"Đã sao chép liên kết",
+    goBrowse:"Bắt đầu tra cứu →", srcH:"Nguồn tư liệu",
+    srcList:[["Giáo trình Chương 2","tài liệu của học phần Hình học giải tích cho Chương 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","tài liệu học phần do các anh chị khóa trước soạn theo giao của thầy, đã được thầy đồng ý cho sử dụng (số trang theo bản in của tiểu luận)."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (số trang theo bản in)."],["Smith & Gale (1904)","P. F. Smith và A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston; số trang là số trang in trong sách."],["Tài liệu tham khảo khác","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): các giáo trình và từ điển tham khảo."]],
     idxEnVi:"EN → VI", idxViEn:"VI → EN", colTerm:"Thuật ngữ", colEq:"Tương ứng", colN:"Mục",
     idxCount:(n)=>`${n} thuật ngữ`,
     savedEmpty:"Chưa có thuật ngữ nào được lưu", savedHint:"Bấm ngôi sao cạnh một mục để lưu lại. Danh sách chỉ nằm trên trình duyệt này.",
@@ -404,11 +500,12 @@ const T = {
     secParab:"Thiết diện là <b>parabola</b>", with:"với",
     aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
     tips:[
+      "Gõ tên thuật ngữ rồi chọn một gợi ý (hoặc nhấn Enter) để mở trang riêng của thuật ngữ đó, có định nghĩa, ví dụ, nguồn và các mục cùng mục.",
       "Gõ <kbd class=\"k\">/</kbd> ở bất kỳ đâu để nhảy tới ô tìm kiếm. Tìm không dấu vẫn ra: <i>vecto</i> → vectơ, <i>tiem can</i> → tiệm cận.",
       "Gõ số mục (ví dụ <i>258</i> hoặc <i>#258</i>) để mở thẳng mục đó.",
       "Bấm <i>#N</i> trong phần Liên quan / Xem thêm để chuyển sang mục tương ứng.",
       "Mỗi mục có đường dẫn riêng (ví dụ <i>…/#n258</i>): sao chép thanh địa chỉ để gửi cho người khác.",
-      "Nút <i>In / Lưu PDF</i> in toàn bộ danh sách đang hiển thị (đang lọc theo chương hay đang tìm kiếm); trong hộp thoại in, chọn “Lưu thành PDF”. Mỗi mục có thêm nút <i>In mục này</i>.",
+      "Nút <i>In / Lưu PDF</i> in toàn bộ danh sách đang hiển thị (đang lọc theo chương hay đang tìm kiếm); trong hộp thoại in, chọn “Lưu thành PDF”. Trên trang riêng của thuật ngữ, nút <i>In</i> chỉ in thuật ngữ đó.",
       "Ngôi sao lưu thuật ngữ vào danh sách riêng trên trình duyệt của bạn; dùng danh sách này cho Flashcard.",
       "Thẻ Mặt bậc hai 3D vẽ 10 mặt chính tắc của Chương 3. Kéo để xoay, chỉnh a, b, c và mặt cắt để thấy thiết diện thay đổi."
     ],
@@ -430,6 +527,9 @@ const T = {
     speak:"Pronounce", copy:"Copy", copied:"Copied", save:"Save", unsave:"Unsave",
     savedT:"Saved to your list", removedT:"Removed from your list", view3d:"View 3D model",
     inDef:"matched in definition", chShort:"Ch.",
+    sgAll:(n)=>`See all ${n} results →`, sameSec:"Same section", prev:"Previous", next:"Next", model3d:"3D model", copyLink:"Copy link", linkCopied:"Link copied",
+    goBrowse:"Start searching →", srcH:"Sources",
+    srcList:[["Giáo trình Chương 2","the course text for Chapter 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","a course document written by earlier cohorts at the lecturer’s assignment and approved by him for use (page numbers follow the printed essay)."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (printed page numbers)."],["Smith & Gale (1904)","P. F. Smith and A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston (printed page numbers)."],["Other references","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): reference textbooks and dictionaries."]],
     idxEnVi:"EN → VI", idxViEn:"VI → EN", colTerm:"Term", colEq:"Equivalent", colN:"Entry",
     idxCount:(n)=>`${n} terms`,
     savedEmpty:"No saved terms yet", savedHint:"Tap the star next to an entry to save it. The list stays in this browser only.",
@@ -445,11 +545,12 @@ const T = {
     secParab:"Section is a <b>parabola</b>", with:"with",
     aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
     tips:[
+      "Type a term and pick a suggestion (or press Enter) to open that term’s own page, with definition, example, sources and entries from the same section.",
       "Press <kbd class=\"k\">/</kbd> anywhere to jump to search. Accents are optional: <i>vecto</i> finds vectơ.",
       "Type an entry number (<i>258</i> or <i>#258</i>) to open it directly.",
       "Tap <i>#N</i> under Related / See also to jump to that entry.",
       "Every entry has its own link (e.g. <i>…/#n258</i>): copy the address bar to share it.",
-      "<i>Print / Save PDF</i> prints everything currently listed (filtered by chapter or search); choose “Save as PDF” in the print dialog. Each entry also has a <i>Print this entry</i> button.",
+      "<i>Print / Save PDF</i> prints everything currently listed (filtered by chapter or search); choose “Save as PDF” in the print dialog. On a term’s own page, <i>Print</i> prints just that term.",
       "The star saves a term to a private list in your browser; use it as a flashcard deck.",
       "The 3D quadrics tab draws the 10 canonical surfaces of Chapter 3. Drag to rotate; change a, b, c and the section plane to watch the cross-section change."
     ],
@@ -465,9 +566,9 @@ const store = {
 };
 
 /* ================= state ================= */
-const VIEWS=["browse","index","quadrics","cards","saved","about"];
+const VIEWS=["about","browse","index","quadrics","cards","saved"];
 const S = {
-  view:"browse", lang:store.get("lang","vi"), q:"", chapter:0, section:"",
+  view:"about", cur:0, printing:false, lang:store.get("lang","vi"), q:"", chapter:0, section:"",
   open:new Set(), favs:new Set(store.get("favs",[])),
   idxDir:"envi", fc:{scope:"all",dir:"en",deck:[],known:new Set(store.get("known",[])),flipped:false},
   quad:{id:"hyp1",a:1.4,b:1,c:1,secOn:true,h:0.35,rulings:false,auto:true}
@@ -481,6 +582,7 @@ const view=$("#view");
 const t=()=>T[S.lang];
 
 /* ================= helpers ================= */
+const NO=n=>`N<span class="no-o">o</span>&nbsp;${n}`;
 const PRINT_ICON='<svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>';
 const PRINT_BTN=()=>`<button class="btn" data-print="all">${PRINT_ICON}${t().print}</button>`;
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
@@ -545,16 +647,24 @@ function renderChrome(){
     $("#stats").innerHTML=[[D.entries.length,L.sEntries],[D.lookupEnVi.length,L.sEn],[D.lookupViEn.length,L.sVi],[D.chapters.length,L.sChap]]
       .map(([n,l])=>`<div><dt>${l}</dt><dd>${n}</dd></div>`).join("");
   }
-  $("#tabs").innerHTML=VIEWS.map(v=>`<button class="tab" role="tab" data-view="${v}" aria-selected="${S.view===v}">${L.tabs[v]}${v==="saved"&&S.favs.size?`<span class="count">${S.favs.size}</span>`:""}</button>`).join("");
+  $("#tabs").innerHTML=VIEWS.map(v=>`<button class="tab" role="tab" data-view="${v}" aria-selected="${S.view===v||(S.view==="entry"&&v==="browse")}">${L.tabs[v]}${v==="saved"&&S.favs.size?`<span class="count">${S.favs.size}</span>`:""}</button>`).join("");
 }
 $("#tabs").addEventListener("click",e=>{const b=e.target.closest("[data-view]");if(b)go(b.dataset.view)});
 
-function setHash(h){try{history.replaceState(null,"",h?"#"+h:location.pathname+location.search)}catch(e){}}
-function go(v,opts={}){
-  S.view=v;stopQuad();setHash(v==="browse"?"":v);
-  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===v));
-  render();
-  if(!opts.keepScroll){const top=$("main").offsetTop-$("#bar").offsetHeight;if(window.scrollY>top)window.scrollTo({top})}
+let curHash=null;const scrollMap={};
+function go(v){if(location.hash==="#"+v)route();else location.hash=v}
+function setBar(){document.documentElement.style.setProperty("--bar-h",$("#bar").offsetHeight+"px")}
+function route(){
+  if(!D)return;
+  if(curHash!==null)scrollMap[curHash]=window.scrollY;
+  const h=(location.hash||"").slice(1), m=h.match(/^n(\d+)$/);
+  if(m&&byN.has(+m[1])){S.view="entry";S.cur=+m[1]}
+  else S.view=VIEWS.includes(h)?h:"about";
+  curHash=h;
+  hideSugg();stopQuad();renderChrome();render();
+  const top=Math.max(0,$("main").offsetTop-$("#bar").offsetHeight);
+  const y=S.view==="entry"?undefined:scrollMap[h];
+  window.scrollTo({top:y!=null?y:(S.view==="entry"||window.scrollY>top?top:window.scrollY)});
 }
 
 /* ================= search ================= */
@@ -591,14 +701,53 @@ function search(q){
 }
 const qEl=$("#q");
 let qTimer;
+const sg=$("#sugg");
+let suggIdx=-1, suggList=[];
+function hideSugg(){sg.hidden=true;suggIdx=-1;qEl.setAttribute("aria-expanded","false");qEl.removeAttribute("aria-activedescendant")}
+function setActive(i){
+  const items=[...sg.querySelectorAll(".sg-item")];suggIdx=i;
+  items.forEach((el,k)=>el.setAttribute("aria-selected",k===i));
+  if(i>=0&&items[i]){qEl.setAttribute("aria-activedescendant",items[i].id);items[i].scrollIntoView({block:"nearest"})}else qEl.removeAttribute("aria-activedescendant");
+}
+function updateSugg(){
+  const qn=norm(qEl.value.trim()).replace(/\s+/g," ");
+  if(!qn||!["about","entry","quadrics","cards"].includes(S.view)){hideSugg();return}
+  const L=t(), res=search(qEl.value);
+  suggList=res.slice(0,8);suggIdx=-1;
+  sg.innerHTML=res.length
+    ?suggList.map((r,i)=>`<button type="button" class="sg-item" role="option" id="sg${i}" data-go="${r.e.n}" aria-selected="false"><span class="num">${NO(r.e.n)}</span><span class="sg-t"><span class="en">${termHTML(r.e.en,qn)}</span><span class="arrow">→</span><span class="vi">${termHTML(r.e.vi,qn)}</span></span><span class="sg-meta">${L.chShort} ${r.e.chapter} · ${r.e.section}${r.inDef?` · ${L.inDef}`:""}</span></button>`).join("")+`<button type="button" class="sg-all" data-all="1">${L.sgAll(res.length)}</button>`
+    :`<div class="sg-none">${L.noRes}. ${L.noResHint}</div>`;
+  sg.hidden=false;qEl.setAttribute("aria-expanded","true");
+}
+function clearBox(){qEl.value="";S.q="";$("#qClear").hidden=true;$("#kbdHint").hidden=false;hideSugg()}
+function pickEntry(n){clearBox();openEntry(n)}
+function showAll(){S.q=qEl.value;S.chapter=0;S.section="";hideSugg();go("browse")}
 qEl.addEventListener("input",()=>{
   $("#qClear").hidden=!qEl.value;$("#kbdHint").hidden=!!qEl.value;
   clearTimeout(qTimer);qTimer=setTimeout(()=>{
-    S.q=qEl.value;
-    if(!["browse","index","saved"].includes(S.view))go("browse",{keepScroll:true});else render();
-  },120);
+    if(["browse","index","saved"].includes(S.view)){S.q=qEl.value;render()}else updateSugg();
+  },90);
 });
-$("#qClear").addEventListener("click",()=>{qEl.value="";S.q="";$("#qClear").hidden=true;$("#kbdHint").hidden=false;render();qEl.focus()});
+qEl.addEventListener("focus",()=>{if(qEl.value&&!["browse","index","saved"].includes(S.view))updateSugg()});
+qEl.addEventListener("blur",()=>setTimeout(hideSugg,150));
+qEl.addEventListener("keydown",e=>{
+  const open=!sg.hidden, n=sg.querySelectorAll(".sg-item").length;
+  if(e.key==="ArrowDown"&&open&&n){e.preventDefault();setActive((suggIdx+1)%n)}
+  else if(e.key==="ArrowUp"&&open&&n){e.preventDefault();setActive(suggIdx<=0?n-1:suggIdx-1)}
+  else if(e.key==="Enter"){
+    const q=qEl.value.trim();if(!q)return;e.preventDefault();
+    if(open&&suggIdx>=0&&suggList[suggIdx])return pickEntry(suggList[suggIdx].e.n);
+    const res=search(q);
+    if(res.length&&(res[0].s>=100||res.length===1))return pickEntry(res[0].e.n);
+    showAll();
+  }else if(e.key==="Escape")hideSugg();
+});
+sg.addEventListener("mousedown",e=>e.preventDefault());
+sg.addEventListener("click",e=>{
+  const it=e.target.closest("[data-go]");if(it){pickEntry(+it.dataset.go);return}
+  if(e.target.closest("[data-all]"))showAll();
+});
+$("#qClear").addEventListener("click",()=>{clearBox();if(["browse","index","saved"].includes(S.view))render();qEl.focus()});
 document.addEventListener("keydown",e=>{
   if(e.key==="/"&&document.activeElement!==qEl&&!/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();qEl.focus();qEl.select()}
   if(e.key==="Escape"&&document.activeElement===qEl&&qEl.value){$("#qClear").click()}
@@ -615,20 +764,22 @@ const MODEL={248:["ellCyl"],249:["ellCyl",{a:1.2,b:1.2}],250:["ellCyl"],251:["hy
   263:["hypParab"],269:["hyp1",{rulings:true}],245:["ellipsoid"],246:["hyp1",{a:1,b:1}],264:["ellipsoid"]};
 
 function rowHTML(e,qn,inDef){
-  const L=t(), open=S.open.has(e.n), fav=S.favs.has(e.n);
+  const L=t(), fav=S.favs.has(e.n);
   const prev=S.lang==="en"?e.defEn:e.defVi;
-  return `<article class="entry${open?" open":""}" id="n${e.n}" data-n="${e.n}">
+  return `<article class="entry${S.printing?" open":""}" id="e${e.n}" data-n="${e.n}">
   <div class="entry-row">
-    <span class="num">№ ${e.n}</span>
-    <button class="toggle" aria-expanded="${open}" data-act="toggle">
-      <span class="terms"><span class="en">${termHTML(e.en,qn)}</span><span class="arrow">→</span><span class="vi">${termHTML(e.vi,qn)}</span>${e.pos?`<span class="pos">${esc(e.pos)}</span>`:""}${inDef?`<span class="match-def">· ${L.inDef}</span>`:""}</span>
-      <span class="preview">${esc(prev)}</span>
-    </button>
+    <a class="rowlink" href="#n${e.n}">
+      <span class="num">${NO(e.n)}</span>
+      <span class="rowmain">
+        <span class="terms"><span class="en">${termHTML(e.en,qn)}</span><span class="arrow">→</span><span class="vi">${termHTML(e.vi,qn)}</span>${e.pos?`<span class="pos">${esc(e.pos)}</span>`:""}${inDef?`<span class="match-def">· ${L.inDef}</span>`:""}</span>
+        <span class="preview">${esc(prev)}</span>
+      </span>
+    </a>
     <button class="star" data-act="fav" aria-pressed="${fav}" aria-label="${fav?L.unsave:L.save}" title="${fav?L.unsave:L.save}">
       <svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></svg>
     </button>
   </div>
-  ${open?bodyHTML(e,qn):""}
+  ${S.printing?bodyHTML(e,qn):""}
 </article>`;
 }
 function bodyHTML(e,qn){
@@ -654,43 +805,79 @@ function bodyHTML(e,qn){
   </div>`;
 }
 function entryClick(ev){
-  const art=ev.target.closest(".entry");
-  const act=ev.target.closest("[data-act]");
-  if(!act||!art)return;
-  const n=+art.dataset.n, e=byN.get(n);
+  const act=ev.target.closest("[data-act]");if(!act)return;
+  const art=act.closest(".entry");
+  const n=art?+art.dataset.n:S.cur, e=byN.get(n);if(!e)return;
   switch(act.dataset.act){
-    case "toggle":
-      if(S.open.has(n))S.open.delete(n);else S.open.add(n);
-      art.outerHTML=rowHTML(e,currentQn(),art.querySelector(".match-def")!==null);break;
     case "fav":
       if(S.favs.has(n)){S.favs.delete(n);toast(t().removedT)}else{S.favs.add(n);toast(t().savedT)}
       saveFavs();renderChrome();
-      if(S.view==="saved")render();else{act.setAttribute("aria-pressed",S.favs.has(n));}
+      if(S.view==="saved")render();else act.setAttribute("aria-pressed",S.favs.has(n));
       break;
     case "speak":speak(cleanEn(e.en));break;
     case "copy":copyText(`${e.en} — ${e.vi}`);break;
-    case "print":printEntry(art);break;
-    case "model":{const [id,pre]=MODEL[n];Object.assign(S.quad,{id,a:1.4,b:1,c:1,rulings:false},QDEF[id].defaults,pre||{});S.quad.h=QDEF[id].h0??.35;go("quadrics");break}
+    case "link":copyText(location.href.split("#")[0]+"#n"+n);break;
+    case "print":window.print();break;
   }
 }
 function currentQn(){return S.q?norm(S.q.trim()).replace(/\s+/g," "):""}
-function openEntry(n){
-  if(!byN.has(n))return;
-  S.open.add(n);
-  if(S.q){S.q="";qEl.value="";$("#qClear").hidden=true;$("#kbdHint").hidden=false}
-  setHash("n"+n);
-  const e=byN.get(n);
-  if(S.chapter&&S.chapter!==e.chapter||S.section&&S.section!==e.section){S.chapter=0;S.section=""}
-  if(S.view!=="browse")S.view="browse";
-  renderChrome();render();
-  requestAnimationFrame(()=>{const el=document.getElementById("n"+n);if(el){const y=el.getBoundingClientRect().top+window.scrollY-$("#bar").offsetHeight-12;window.scrollTo({top:y,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}});
-}
+function openEntry(n){if(byN.has(n))go("n"+n)}
 
 /* ================= views ================= */
+function chipsRel(e){return e.related.map(r=>r.n?`<button class="chip" data-go="${r.n}"><b>#${r.n}</b>${esc(r.t)}</button>`:`<span class="chip off">${esc(r.t)}</span>`).join("")}
+function chipsSee(e){const L=t(),enFirst=S.lang==="en";return e.seeAlso.map(n=>{const x=byN.get(n);return x?`<button class="chip" data-go="${n}"><b>#${n}</b>${esc(splitTerm(enFirst?x.en:x.vi)[0])} · ${L.chShort} ${x.chapter}</button>`:""}).join("")}
+function pairHTML(en,vi){const a=`<p class="para"><span class="tag">EN</span>${esc(en)}</p>`,b=`<p class="para"><span class="tag">VI</span>${esc(vi)}</p>`;return S.lang==="en"?a+b:b+a}
+const ICON={
+  speak:'<svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
+  star:'<svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></svg>',
+  copy:'<svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="8" y="8" width="12" height="12"/><path d="M16 8V4H4v12h4"/></svg>',
+  link:'<svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>'
+};
+function renderEntry(){
+  const L=t(), e=byN.get(S.cur), lang=S.lang;
+  const ch=D.chapters.find(c=>c.id===e.chapter), sec=ch.sections.find(s=>s.id===e.section);
+  const T1=x=>esc(lang==="en"?x.titleEn:x.titleVi);
+  const sibs=D.entries.filter(x=>x.section===e.section);
+  const pv=byN.get(e.n-1), nx=byN.get(e.n+1), fav=S.favs.has(e.n), model=MODEL[e.n];
+  const rel=chipsRel(e), see=chipsSee(e), nm=x=>esc(splitTerm(x.en)[0]);
+  document.title=`${splitTerm(e.en)[0]} — ${splitTerm(e.vi)[0]} · ${lang==="en"?"Analytic Geometry Glossary":"Từ điển Hình học giải tích"}`;
+  view.innerHTML=`<nav class="crumbs" aria-label="breadcrumb"><button data-flt="0|">${L.tabs.browse}</button><span class="sep">›</span><button data-flt="${ch.id}|">${L.chapter} ${ch.id} · ${T1(ch)}</button><span class="sep">›</span><button data-flt="${ch.id}|${sec.id}">${sec.id} ${T1(sec)}</button></nav>
+  <div class="ep-grid">
+  <article class="ep-main">
+    <header class="ep-head">
+      <p class="ep-kick"><span class="num">${NO(e.n)}</span><span>${L.chShort} ${e.chapter} · ${e.section}</span>${e.pos?`<span class="pos">${esc(e.pos)}</span>`:""}</p>
+      <h1 class="ep-en">${termHTML(e.en,"")}</h1>
+      <p class="ep-vi">${termHTML(e.vi,"")}</p>
+      <div class="actions">
+        ${canSpeak?`<button class="btn" data-act="speak">${ICON.speak}${L.speak}</button>`:""}
+        <button class="btn" data-act="fav" aria-pressed="${fav}">${ICON.star}${L.save}</button>
+        <button class="btn" data-act="copy">${ICON.copy}${L.copy}</button>
+        <button class="btn" data-act="link">${ICON.link}${L.copyLink}</button>
+        <button class="btn" data-act="print">${PRINT_ICON}${L.print.split(" / ")[0]}</button>
+      </div>
+    </header>
+    <section class="ep-sec"><h2 class="lbl">${L.def}</h2><div class="defs">${pairHTML(e.defEn,e.defVi)}</div></section>
+    ${(e.exEn||e.exVi)?`<section class="ep-sec ex"><h2 class="lbl">${L.ex}</h2><div class="defs">${pairHTML(e.exEn||"—",e.exVi||"—")}</div></section>`:""}
+    ${model?`<section class="ep-sec"><h2 class="lbl">${L.model3d}</h2><div class="q3d" id="q3d"></div></section>`:""}
+    <section class="ep-sec"><dl class="meta">
+      ${rel?`<dt>${L.related}</dt><dd>${rel}</dd>`:""}
+      ${see?`<dt>${L.see}</dt><dd>${see}</dd>`:""}
+      ${e.source?`<dt>${L.src}</dt><dd><span class="src">${esc(e.source)}</span></dd>`:""}
+    </dl></section>
+    <nav class="ep-pn">${pv?`<a href="#n${pv.n}"><span class="dir">← ${L.prev}</span><br>${NO(pv.n)} ${nm(pv)}</a>`:"<span></span>"}${nx?`<a class="nx" href="#n${nx.n}"><span class="dir">${L.next} →</span><br>${NO(nx.n)} ${nm(nx)}</a>`:"<span></span>"}</nav>
+  </article>
+  <aside class="ep-side" aria-label="${L.sameSec}"><h2>${L.sameSec} · ${sec.id}</h2><p class="side-t">${T1(sec)}</p>
+    <ul>${sibs.map(x=>`<li><a href="#n${x.n}" aria-current="${x.n===e.n}"><span class="num">${x.n}</span><span>${esc(splitTerm(x.en)[0])}<small>${esc(splitTerm(x.vi)[0])}</small></span></a></li>`).join("")}</ul>
+  </aside></div>`;
+  if(model){const [id,pre]=MODEL[e.n];Object.assign(S.quad,{id,a:1.4,b:1,c:1,rulings:false},QDEF[id].defaults,pre||{});S.quad.h=QDEF[id].h0??.35;renderQuad($("#q3d"),true)}
+}
+
 function render(){
   if(!D)return;
   stopQuad();
-  ({browse:renderBrowse,index:renderIndex,quadrics:renderQuad,cards:renderCards,saved:renderSaved,about:renderAbout})[S.view]();
+  document.body.dataset.view=S.view;
+  ({about:renderAbout,browse:renderBrowse,index:renderIndex,quadrics:()=>renderQuad(),cards:renderCards,saved:renderSaved,entry:renderEntry})[S.view]();
+  setBar();
 }
 
 function tocHTML(){
@@ -796,9 +983,12 @@ function renderAbout(){
   const L=t();
   view.innerHTML=`<div class="prose">
     <h2>${L.aboutH}</h2>
-    <dl class="conv">${D.conventions[S.lang].map(c=>`<dt>${esc(c.label)}</dt><dd>${esc(c.text)}</dd>`).join("")}</dl>
-    <h3>${L.tipsH}</h3><ul class="tips">${L.tips.map(x=>`<li>${x}</li>`).join("")}</ul>
+    <div class="start"><button class="btn primary" data-gov="browse">${L.goBrowse}</button><button class="btn" data-gov="index">${L.tabs.index}</button><button class="btn" data-gov="quadrics">${L.tabs.quadrics}</button></div>
+    <dl class="conv">${D.conventions[S.lang].filter(c=>c.label!=="Nguồn"&&c.label!=="Sources").map(c=>`<dt>${esc(c.label)}</dt><dd>${esc(c.text)}</dd>`).join("")}</dl>
+    <h3>${L.srcH}</h3>
+    <ul class="srcs">${L.srcList.map(([a,b])=>`<li><b>${esc(a)}</b>: ${esc(b)}</li>`).join("")}</ul>
     ${teamHTML()}
+    <h3>${L.tipsH}</h3><ul class="tips">${L.tips.map(x=>`<li>${x}</li>`).join("")}</ul>
   </div>`;
 }
 
@@ -836,7 +1026,7 @@ function renderCards(keep){
     const e=byN.get(d[0]), front=S.fc.dir==="en"?e.en:e.vi, back=S.fc.dir==="en"?e.vi:e.en;
     const def=S.lang==="en"?e.defEn:e.defVi;
     card=`<div class="fcard fade" id="fcard" role="button" tabindex="0" aria-label="${L.flip}">
-      <div class="corner"><span>№ ${e.n} · ${L.chShort} ${e.chapter} · ${e.section}</span><span>${S.fc.dir==="en"?"EN":"VI"}</span></div>
+      <div class="corner"><span>${NO(e.n)} · ${L.chShort} ${e.chapter} · ${e.section}</span><span>${S.fc.dir==="en"?"EN":"VI"}</span></div>
       <p class="front">${termHTML(front,"")}</p>
       ${S.fc.flipped?`<div class="back"><div class="other">${termHTML(back,"")}</div><p>${esc(def)}</p></div>`:""}
       <div class="hint">${L.fcTap}</div></div>
@@ -951,7 +1141,7 @@ function makeView(canvas,opt={}){
     if(sc.S)strokeSet(sc.S,COL.accent,2.4,.85);
     if(sc.P){ctx.fillStyle=COL.accent;sc.P.forEach(p=>{const q=proj(p);ctx.beginPath();ctx.arc(q[0],q[1],4*v.dpr,0,TAU);ctx.fill()})}
   }
-  function loop(){v.raf=requestAnimationFrame(loop);if(v.auto&&!v.drag){v.yaw+=0.0035;v.dirty=true}if(v.dirty){v.dirty=false;draw()}}
+  function loop(){v.raf=requestAnimationFrame(loop);if(!canvas.offsetParent)return;if(v.auto&&!v.drag){v.yaw+=0.0035;v.dirty=true}if(v.dirty){v.dirty=false;draw()}}
   canvas.addEventListener("pointerdown",e=>{if(opt.static)return;v.drag={x:e.clientX,y:e.clientY,yaw:v.yaw,pitch:v.pitch};canvas.setPointerCapture(e.pointerId)});
   canvas.addEventListener("pointermove",e=>{if(!v.drag)return;v.yaw=v.drag.yaw+(e.clientX-v.drag.x)*0.01;v.pitch=Math.max(-1.5,Math.min(1.5,v.drag.pitch+(e.clientY-v.drag.y)*0.01));v.dirty=true});
   const end=()=>{v.drag=null};canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);
@@ -977,18 +1167,18 @@ function quadScene(){
   }
   return sc;
 }
-function renderQuad(){
+function renderQuad(host=view,embed=false){
   const L=t(), q=S.quad, d=QDEF[q.id], e=byN.get(d.n);
   const nm=x=>{const en=byN.get(QDEF[x].n);return splitTerm(S.lang==="en"?en.en:en.vi)[0]};
   const labels={a:"a",b:"b",c:"c",p:"p",R:"R"};
   const vals={a:q.a,b:q.b,c:q.c,p:q.c,R:q.a};
-  view.innerHTML=`<div class="q-grid">
+  host.innerHTML=`<div class="q-grid">
     <div class="q-stage"><canvas id="qc" aria-label="${esc(nm(q.id))}"></canvas><span class="q-hint">${L.qHint}</span></div>
     <div>
-      <p class="lbl">${L.qPick}</p>
+      ${embed?"":`<p class="lbl">${L.qPick}</p>
       <div class="q-pick">${QORDER.map(x=>`<button data-q="${x}" aria-pressed="${x===q.id}">${esc(nm(x))}</button>`).join("")}</div>
       <h2 class="q-title">${esc(splitTerm(S.lang==="en"?e.en:e.vi)[0])}</h2>
-      <p class="q-sub">${esc(splitTerm(S.lang==="en"?e.vi:e.en)[0])}</p>
+      <p class="q-sub">${esc(splitTerm(S.lang==="en"?e.vi:e.en)[0])}</p>`}
       <div class="eq" id="qeq">${d.eq}</div>
       <p class="eq-num" id="qeqn"></p>
       <span id="qrev"></span>
@@ -998,7 +1188,7 @@ function renderQuad(){
       <p class="section-note" id="qnote"></p>
       ${d.ruled?`<label class="check"><input type="checkbox" id="qrul" ${q.rulings?"checked":""}> ${L.qRulings}</label>`:""}
       <label class="check"><input type="checkbox" id="qauto" ${q.auto?"checked":""}> ${L.qAuto}</label>
-      <div class="q-links"><button class="btn" data-go="${d.n}">${L.qOpen} № ${d.n}</button><button class="btn" id="qreset">${L.qResetView}</button></div>
+      <div class="q-links">${embed?"":`<button class="btn" data-go="${d.n}">${L.qOpen} ${NO(d.n)}</button>`}<button class="btn" id="qreset">${L.qResetView}</button></div>
     </div></div>`;
   const cv=$("#qc");quadView=makeView(cv,{auto:q.auto,lw:1.1});
   const update=()=>{
@@ -1010,8 +1200,8 @@ function renderQuad(){
     else{$("#qho").textContent="";$("#qnote").textContent=""}
   };
   update();quadView.start();
-  view.querySelector(".q-pick").addEventListener("click",ev=>{const b=ev.target.closest("[data-q]");if(!b)return;const id=b.dataset.q;Object.assign(S.quad,{id,a:1.3,b:1,c:1},QDEF[id].defaults);stopQuad();renderQuad()});
-  view.querySelectorAll("[data-p]").forEach(inp=>inp.addEventListener("input",()=>{const k=inp.dataset.p,v=+inp.value;if(k==="a"||k==="R")q.a=v;else if(k==="b")q.b=v;else q.c=v;$("#qo-"+k).textContent=v.toFixed(2);update()}));
+  const pk=host.querySelector(".q-pick");if(pk)pk.addEventListener("click",ev=>{const b=ev.target.closest("[data-q]");if(!b)return;const id=b.dataset.q;Object.assign(S.quad,{id,a:1.3,b:1,c:1},QDEF[id].defaults);stopQuad();renderQuad(host,embed)});
+  host.querySelectorAll("[data-p]").forEach(inp=>inp.addEventListener("input",()=>{const k=inp.dataset.p,v=+inp.value;if(k==="a"||k==="R")q.a=v;else if(k==="b")q.b=v;else q.c=v;$("#qo-"+k).textContent=v.toFixed(2);update()}));
   $("#qsec").addEventListener("change",ev=>{q.secOn=ev.target.checked;$("#qh").disabled=!q.secOn;update()});
   $("#qh").addEventListener("input",ev=>{q.h=+ev.target.value;update()});
   const rul=$("#qrul");if(rul)rul.addEventListener("change",ev=>{q.rulings=ev.target.checked;update()});
@@ -1025,49 +1215,29 @@ function boot(data){
   document.documentElement.lang=S.lang;document.body.classList.toggle("lang-en",S.lang==="en");
   $("#langVi").setAttribute("aria-pressed",S.lang==="vi");$("#langEn").setAttribute("aria-pressed",S.lang==="en");
   refreshColors();
-  const h=(location.hash||"").slice(1);
-  if(VIEWS.includes(h))S.view=h;
-  renderChrome();render();
-  const m=h.match(/^n(\d+)$/);if(m)openEntry(+m[1]);
-  const setBar=()=>document.documentElement.style.setProperty("--bar-h",$("#bar").offsetHeight+"px");setBar();window.addEventListener("resize",setBar);
+  route();
+  window.addEventListener("resize",setBar);
   // masthead drawing
   const mc=$("#mastCanvas");
-  if(mc&&getComputedStyle(mc.parentElement).display!=="none"){
+  if(mc){
     mastView=makeView(mc,{auto:true,axes:false,static:true,pitch:0.32,lw:.9});
     const g=QDEF.hyp1.gen(1,1,1.05);mastView.set({L:g.L});mastView.start();
   }
 }
 /* ---- in ấn ---- */
-let printRestore=null;
-function afterPrint(){document.body.classList.remove("print-one");document.querySelectorAll(".entry.printing").forEach(a=>a.classList.remove("printing"));if(printRestore){S.open=printRestore;printRestore=null;render()}}
+function afterPrint(){if(S.printing){S.printing=false;render()}}
 window.addEventListener("afterprint",afterPrint);
-function printAll(){
-  if(S.view==="browse"||S.view==="saved"){
-    printRestore=new Set(S.open);
-    const qn=currentQn();let list;
-    if(S.view==="saved")list=[...S.favs].map(n=>byN.get(n)).filter(Boolean);
-    else if(qn)list=search(S.q).map(r=>r.e);
-    else list=D.entries.filter(e=>(!S.chapter||e.chapter===S.chapter)&&(!S.section||e.section===S.section));
-    list.forEach(e=>S.open.add(e.n));render();
-  }
-  setTimeout(()=>window.print(),60);
-}
-function printEntry(art){
-  art.classList.add("printing");document.body.classList.add("print-one");
-  if(!S.open.has(+art.dataset.n)){S.open.add(+art.dataset.n);printRestore=printRestore||null}
-  setTimeout(()=>window.print(),30);
-}
+function printAll(){S.printing=true;render();setTimeout(()=>window.print(),60)}
 view.addEventListener("click",ev=>{
   if(ev.target.closest("[data-print]")){printAll();return}
+  const gv=ev.target.closest("[data-gov]");if(gv){go(gv.dataset.gov);return}
+  const fl=ev.target.closest("[data-flt]");
+  if(fl){const [c,sc]=fl.dataset.flt.split("|");S.chapter=+c;S.section=sc;S.q="";go("browse");return}
   const g=ev.target.closest("[data-go]");
   if(g){openEntry(+g.dataset.go);return}
-  if(ev.target.closest(".entry"))entryClick(ev);
+  if(ev.target.closest("[data-act]"))entryClick(ev);
 });
-window.addEventListener("hashchange",()=>{
-  if(!D)return;const h=(location.hash||"").slice(1);
-  if(VIEWS.includes(h)&&h!==S.view){go(h,{keepScroll:true})}
-  else{const m=h.match(/^n(\d+)$/);if(m&&byN.has(+m[1])&&!document.getElementById("n"+m[1]))openEntry(+m[1])}
-});
+window.addEventListener("hashchange",route);
 renderChrome();
 if(window.HHGT_DATA)boot(window.HHGT_DATA);
 else view.innerHTML=`<div class="empty"><strong>Không tải được dữ liệu</strong>Tải lại trang để thử lại.</div>`;
