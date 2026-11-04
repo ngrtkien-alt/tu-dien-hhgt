@@ -1,6 +1,6 @@
 # Từ điển thuật ngữ Anh–Việt · Hình học giải tích
 
-Website tĩnh (HTML + CSS + JavaScript thuần), không cần máy chủ, không cần cài đặt. 284 mục từ. Trang đầu là “Quy ước & nguồn”; gõ vào ô tìm kiếm (EN hoặc VI, không cần dấu) để hiện gợi ý, bấm gợi ý hoặc nhấn Enter để mở trang riêng của thuật ngữ (định nghĩa, ví dụ, mô hình 3D với các mặt bậc hai, liên quan, nguồn, danh sách cùng mục). Có thêm bảng tra A–Z hai chiều, lọc theo chương/mục, chế độ sáng/tối, in / lưu PDF, flashcard.
+Website tĩnh (HTML + CSS + JavaScript thuần), không cần máy chủ, không cần cài đặt. 284 mục từ, 205 hình minh họa vẽ riêng (SVG), vectơ có mũi tên trên đầu ký hiệu, chữ tiếng Việt theo chính tả giáo trình (afin, elip, hypebol…). Trang đầu là “Quy ước & nguồn”; gõ vào ô tìm kiếm (EN hoặc VI, không cần dấu) để hiện gợi ý, bấm gợi ý hoặc nhấn Enter để mở trang riêng của thuật ngữ (định nghĩa, ví dụ, mô hình 3D với các mặt bậc hai, liên quan, nguồn, danh sách cùng mục). Có thêm bảng tra A–Z hai chiều, lọc theo chương/mục, chế độ sáng/tối, in / lưu PDF, flashcard.
 
 ## Các file
 
@@ -8,11 +8,15 @@ Website tĩnh (HTML + CSS + JavaScript thuần), không cần máy chủ, không
 |---|---|
 | `index.html` | Giao diện và mã chạy của website |
 | `data.js` | Toàn bộ 284 mục từ (tự sinh, không sửa tay) |
+| `figs.js` | 205 hình minh họa SVG, gắn theo số mục (tự sinh) |
+| `fonts/`, `fonts.css` | Phông chữ Be Vietnam Pro và Newsreader, tải kèm để web không phụ thuộc mạng |
 | `config.js` | **Thông tin nhóm** (tên lớp, giảng viên, học kỳ, 10 thành viên) — file duy nhất bạn cần sửa |
 | `favicon.svg`, `404.html`, `.nojekyll` | Biểu tượng tab, trang báo lỗi, tắt Jekyll của GitHub |
 | `tools/` | Script dựng lại `data.js` khi nội dung từ điển thay đổi |
 
-Mở thử trên máy: bấm đúp `index.html` (chạy được cả khi không có mạng, chỉ khác phông chữ).
+Quy ước ký hiệu trong dữ liệu: vectơ được đánh dấu `⟦AB⟧`, `⟦u⟧`, `⟦0⟧`… ; trang web tự vẽ mũi tên lên đầu. Chỉ số dưới viết `⟦e₁⟧` hoặc `X_cũ`.
+
+Mở thử trên máy: bấm đúp `index.html` (chạy được cả khi không có mạng).
 
 ## Đưa lên GitHub Pages (khoảng 5 phút, dùng trình duyệt)
 
@@ -21,7 +25,7 @@ Mở thử trên máy: bấm đúp `index.html` (chạy được cả khi không
    - Repository name: ví dụ `tu-dien-hhgt` (chỉ dùng chữ thường, số, dấu gạch ngang).
    - Chọn **Public** (GitHub Pages miễn phí cần repo công khai).
    - Bấm **Create repository**.
-3. Trong repo mới, bấm **uploading an existing file**. Giải nén file zip này ra máy, rồi **kéo toàn bộ file và thư mục bên trong** (`index.html`, `data.js`, `config.js`, `favicon.svg`, `404.html`, `.nojekyll`, `tools`, `README.md`) thả vào khung upload. Lưu ý: kéo *nội dung* của thư mục, không kéo cả thư mục bọc ngoài. File `.nojekyll` bị ẩn trên Windows/macOS; nếu không thấy, bỏ qua cũng được.
+3. Trong repo mới, bấm **uploading an existing file**. Giải nén file zip này ra máy, rồi **kéo toàn bộ file và thư mục bên trong** (`index.html`, `data.js`, `figs.js`, `fonts`, `fonts.css`, `config.js`, `favicon.svg`, `404.html`, `.nojekyll`, `tools`, `README.md`) thả vào khung upload. Lưu ý: kéo *nội dung* của thư mục, không kéo cả thư mục bọc ngoài. File `.nojekyll` bị ẩn trên Windows/macOS; nếu không thấy, bỏ qua cũng được.
 4. Kéo xuống cuối trang, bấm **Commit changes**.
 5. Vào **Settings** → **Pages** (menu bên trái).
    - Source: **Deploy from a branch**.
@@ -29,6 +33,10 @@ Mở thử trên máy: bấm đúp `index.html` (chạy được cả khi không
 6. Đợi 1–2 phút, tải lại trang Settings → Pages. GitHub hiện địa chỉ:
    `https://<tên-tài-khoản>.github.io/tu-dien-hhgt/`
    Đó là link nộp bài. Mở thử trên điện thoại và máy tính.
+
+## Cập nhật bản mới lên repo đã có
+
+Vào repo → **Add file → Upload files**, kéo toàn bộ file mới vào (file trùng tên sẽ bị ghi đè) → **Commit changes**. **Nếu `config.js` trên repo đã điền thông tin nhóm thì không tải `config.js` mới lên**, để tránh mất thông tin. Sau 1–2 phút bấm Ctrl+F5 để xem bản mới. File `assemble.py` cũ trong `tools/` (nếu còn trên repo) không còn dùng, có thể xóa.
 
 ## Điền thông tin nhóm
 
