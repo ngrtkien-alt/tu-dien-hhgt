@@ -19,7 +19,7 @@ window.HHGT_CONFIG = {
   },
   lecturer: {
     vi: "TS. Nguyễn Lê Chí Quyết",
-    en: "Dr. Nguyễn Lê Chí Quyết"
+    en: "PhD. Nguyễn Lê Chí Quyết"
   },
   semester: {
     vi: "Học kỳ 1, năm học 2026–2027",
