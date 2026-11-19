@@ -463,6 +463,7 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
 .fg-ts{fill:var(--ink-2);font-family:var(--f-math);font-size:13px;font-style:italic}
 .fg-tb{fill:var(--ink);font-family:var(--f-body);font-size:14px}
 .fg-tr{fill:var(--ink);font-family:var(--f-body);font-size:12px}
+.fg-hl{fill:none;stroke:var(--card);stroke-width:5px;stroke-linejoin:round}
 .fg-ah{fill:var(--brand);stroke:none}
 .fg-aha{fill:var(--accent);stroke:none}
 
@@ -814,6 +815,9 @@ const S = {
 let D=null, byN=new Map(), searchIdx=[];
 const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"αfein",courseId:"",members:[]},window.HHGT_CONFIG||{});
 const loc=(v,lg)=>{lg=lg||S.lang;if(v&&typeof v==="object"&&!Array.isArray(v))return String(v[lg]||v[lg==="vi"?"en":"vi"]||"");return v==null?"":String(v)};
+const POS={n:{vi:"danh từ",en:"noun"},"n phr":{vi:"cụm danh từ",en:"noun phrase"},adj:{vi:"tính từ",en:"adjective"}};
+const posFull=p=>{const x=POS[p];return x?(S.lang==="en"?x.en:x.vi):""};
+const posTip=p=>{const x=POS[p];return x?(S.lang==="en"?`${x.en} (${x.vi})`:`${x.vi} (${x.en})`):p};
 const loc2=v=>{if(v&&typeof v==="object"&&!Array.isArray(v)){const o=v[S.lang==="vi"?"en":"vi"],m=loc(v);return o&&o!==m?String(o):""}return ""};
 S.recent=(store.get("recent",[])||[]).filter(Number.isInteger).slice(0,8);
 const pushRecent=n=>{S.recent=[n,...S.recent.filter(x=>x!==n)].slice(0,8);store.set("recent",S.recent)};
@@ -1047,7 +1051,7 @@ function rowHTML(e,qn,inDef){
     <a class="rowlink" href="#n${e.n}">
       <span class="num">${NO(e.n)}</span>
       <span class="rowmain">
-        <span class="terms"><span class="en">${termHTML(e.en,qn)}</span><span class="arrow">→</span><span class="vi">${termHTML(e.vi,qn)}</span>${e.pos?`<span class="pos">${esc(e.pos)}</span>`:""}${inDef?`<span class="match-def">· ${L.inDef}</span>`:""}</span>
+        <span class="terms"><span class="en">${termHTML(e.en,qn)}</span><span class="arrow">→</span><span class="vi">${termHTML(e.vi,qn)}</span>${e.pos?`<span class="pos" title="${esc(posTip(e.pos))}" aria-label="${esc(posTip(e.pos))}">${esc(e.pos)}</span>`:""}${inDef?`<span class="match-def">· ${L.inDef}</span>`:""}</span>
         <span class="preview">${esc(strip(prev))}</span>
       </span>
     </a>
@@ -1127,7 +1131,7 @@ function renderEntry(){
   <div class="ep-grid">
   <article class="ep-main">
     <header class="ep-head">
-      <p class="ep-kick"><span class="num">${NO(e.n)}</span><span>${L.chShort} ${e.chapter} · ${e.section}</span>${e.pos?`<span class="pos">${esc(e.pos)}</span>`:""}</p>
+      <p class="ep-kick"><span class="num">${NO(e.n)}</span><span>${L.chShort} ${e.chapter} · ${e.section}</span>${e.pos?`<span class="pos" title="${esc(posTip(e.pos))}">${esc(e.pos)}${posFull(e.pos)?` · ${esc(posFull(e.pos))}`:""}</span>`:""}</p>
       <div class="ep-title"><h1 class="ep-en">${hl(splitTerm(e.en)[0],"")}</h1>${canSpeak?`<button class="spk" data-act="speak" aria-label="${L.speak}" title="${L.speak}">${ICON.speak}</button>`:""}${splitTerm(e.en)[1]?` <span class="var">${hl(splitTerm(e.en)[1],"")}</span>`:""}</div>
       <p class="ep-vi">${termHTML(e.vi,"")}</p>
       <div class="actions">
@@ -1306,7 +1310,7 @@ function introHTML(){
 }
 function renderAbout(){
   const L=t(), en=S.lang==="en";
-  const conv=D.conventions[S.lang].filter(c=>c.label!=="Nguồn"&&c.label!=="Sources").map(c=>`<dt>${esc(c.label)}</dt><dd>${rich(c.text)}</dd>`).join("");
+  const conv=D.conventions[S.lang].filter(c=>c.label!=="Nguồn"&&c.label!=="Sources").map(c=>`<dt>${esc(c.label)}</dt><dd>${rich(c.text)}</dd>`).join("")+`<dt>${S.lang==="en"?"Part of speech":"Từ loại"}</dt><dd>${S.lang==="en"?"n = noun · n phr = noun phrase · adj = adjective (shown for Chapter 2 entries).":"n = danh từ (noun) · n phr = cụm danh từ (noun phrase) · adj = tính từ (adjective); ghi ở các mục Chương 2."}</dd>`;
   const ccs=D.chapters.map(c=>{const n=D.entries.filter(e=>e.chapter===c.id).length;return `<button class="cc" data-flt="${c.id}|"><span class="cc-n">${c.id}</span><span class="cc-t"><b>${esc(en?c.titleEn:c.titleVi)}</b><small>${esc(en?c.titleVi:c.titleEn)}</small></span><span class="cc-c">${n} ${L.entries}</span></button>`}).join("");
   const tiles=[["browse",L.tabs.browse,L.tileBrowse],["index",L.tabs.index,L.tileIndex],["quadrics",L.tabs.quadrics,L.tileQuad],["cards",L.tabs.cards,L.tileCards]]
     .map(([k,a,b])=>`<button class="tile" data-gov="${k}"><span class="ti">${TILE_ICON[k]}</span><b>${a}</b><span>${b}</span></button>`).join("");
