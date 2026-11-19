@@ -455,8 +455,8 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
 .fg-thin{stroke:var(--muted);fill:none;stroke-width:1}
 .fg-acc{stroke:var(--accent);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .fg-dash{stroke-dasharray:5 4}
-.fg-fill{fill:var(--accent-soft);fill-opacity:.9;stroke:none}
-.fg-fill2{fill:var(--brand-soft);fill-opacity:.9;stroke:none}
+.fg-fill{fill:var(--accent-soft);fill-opacity:.9}
+.fg-fill2{fill:var(--brand-soft);fill-opacity:.9}
 .fg-pt{fill:var(--brand);stroke:none}
 .fg-pta{fill:var(--accent);stroke:var(--brand);stroke-width:1.2}
 .fg-t{fill:var(--ink);font-family:var(--f-math);font-size:15px;font-style:italic}
@@ -616,6 +616,30 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
 #view:focus{outline:none}
 @media print{.recent,.tb-r{display:none!important}}
 
+/* chữ có dấu chấm (i, j): mũi tên nằm trên dấu chấm và rộng hơn thân chữ */
+.vec.vdt{min-width:.46em;text-align:center;padding:.19em 0 0;margin:-.19em 0 0}
+.vec.vdt::before{left:.02em;right:.05em;top:.02em}
+.vec.vdt::after{right:.02em;top:.02em}
+
+/* giới thiệu + tên nhóm */
+.intro{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:20px 24px}
+.gbadge{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:9.5rem;padding:14px 22px;border-radius:var(--r);background:var(--band);color:var(--on-band)}
+.gbadge small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:700}
+.gbadge b{font-size:2.1rem;line-height:1.15;font-weight:800;letter-spacing:.01em}
+.intro-t p{margin:0 0 .6rem;font-size:1rem;line-height:1.65}
+.intro-t p:last-child{margin:0}
+@media (max-width:640px){.intro{grid-template-columns:minmax(0,1fr);gap:14px;padding:16px}.gbadge{flex-direction:row;gap:12px;justify-content:flex-start;padding:10px 16px}.gbadge b{font-size:1.6rem}}
+
+/* pill tên nhóm */
+.gpill,.brand-g{display:inline-block;border-radius:999px;padding:.14rem .75rem;background:var(--band);color:var(--on-band);font-weight:700;font-size:.82rem;letter-spacing:.02em;text-transform:none;line-height:1.3;white-space:nowrap}
+.brand-g{margin-left:2px;font-size:.78rem}
+.brand-g[hidden]{display:none}
+.kicker .gpill{margin-left:2px}
+@media (max-width:860px){.brand-g{display:none}}
+.mast .gpill{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.45)}
+@media print{.gpill,.brand-g{display:none!important}}
+.kicker .gpill{font-size:.92rem;padding:.2rem .95rem}
+
 :root{--mathbg:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%201200%20560%22%20preserveAspectRatio=%22xMaxYMid%20slice%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-linecap=%22round%22%3E%3Cg%20stroke-opacity=%22.20%22%20stroke-width=%221.4%22%3E%3Cpath%20d=%22M120%20290H1180M820%2030V530%22/%3E%3C/g%3E%3Cpath%20d=%22M180%20285v10M260%20285v10M340%20285v10M420%20285v10M500%20285v10M580%20285v10M660%20285v10M740%20285v10M900%20285v10M980%20285v10M1060%20285v10M1140%20285v10M815%2050h10M815%20130h10M815%20210h10M815%20370h10M815%20450h10%22%20stroke-opacity=%22.22%22%20stroke-width=%221.2%22/%3E%3Cg%20transform=%22rotate(-16%20820%20290)%22%3E%3Cellipse%20cx=%22820%22%20cy=%22290%22%20rx=%22250%22%20ry=%22128%22%20stroke-opacity=%22.42%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M570%20290H1070%22%20stroke-opacity=%22.25%22%20stroke-dasharray=%226%206%22/%3E%3Ccircle%20cx=%22605%22%20cy=%22290%22%20r=%225%22%20fill=%22%23A8D0FF%22%20stroke=%22none%22%20fill-opacity=%22.9%22/%3E%3Ccircle%20cx=%221035%22%20cy=%22290%22%20r=%225%22%20fill=%22%23A8D0FF%22%20stroke=%22none%22%20fill-opacity=%22.9%22/%3E%3C/g%3E%3Cpath%20d=%22M707.5%20303.5%20L688.0%20321.3%20L670.4%20337.5%20L654.7%20352.2%20L640.6%20365.7%20L628.0%20378.1%20L616.7%20389.4%20L606.8%20399.9%20L598.0%20409.5%20L590.3%20418.4%20L583.6%20426.7%20L577.9%20434.5%20L573.0%20441.8%20L568.9%20448.7%20L565.7%20455.4%20L563.2%20461.7%20L561.4%20467.9%20L560.4%20474.0%20L560.0%20480.0%20L560.4%20486.0%20L561.4%20492.1%20L563.2%20498.3%20L565.7%20504.6%20L568.9%20511.3%20L573.0%20518.2%20L577.9%20525.5%20L583.6%20533.3%20L590.3%20541.6%20L598.0%20550.5%20L606.8%20560.1%20L616.7%20570.6%20L628.0%20581.9%20L640.6%20594.3%20L654.7%20607.8%20L670.4%20622.5%20L688.0%20638.7%20L707.5%20656.5%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cpath%20d=%22M272.5%20303.5%20L292.0%20321.3%20L309.6%20337.5%20L325.3%20352.2%20L339.4%20365.7%20L352.0%20378.1%20L363.3%20389.4%20L373.2%20399.9%20L382.0%20409.5%20L389.7%20418.4%20L396.4%20426.7%20L402.1%20434.5%20L407.0%20441.8%20L411.1%20448.7%20L414.3%20455.4%20L416.8%20461.7%20L418.6%20467.9%20L419.6%20474.0%20L420.0%20480.0%20L419.6%20486.0%20L418.6%20492.1%20L416.8%20498.3%20L414.3%20504.6%20L411.1%20511.3%20L407.0%20518.2%20L402.1%20525.5%20L396.4%20533.3%20L389.7%20541.6%20L382.0%20550.5%20L373.2%20560.1%20L363.3%20570.6%20L352.0%20581.9%20L339.4%20594.3%20L325.3%20607.8%20L309.6%20622.5%20L292.0%20638.7%20L272.5%20656.5%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cpath%20d=%22M794.0%20351.0%20L812.0%20301.4%20L830.0%20256.0%20L848.0%20215.0%20L866.0%20178.2%20L884.0%20145.8%20L902.0%20117.8%20L920.0%2094.0%20L938.0%2074.6%20L956.0%2059.4%20L974.0%2048.6%20L992.0%2042.2%20L1010.0%2040.0%20L1028.0%2042.2%20L1046.0%2048.6%20L1064.0%2059.4%20L1082.0%2074.6%20L1100.0%2094.0%20L1118.0%20117.8%20L1136.0%20145.8%20L1154.0%20178.2%20L1172.0%20215.0%20L1190.0%20256.0%20L1208.0%20301.4%20L1226.0%20351.0%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cg%20fill=%22%23fff%22%20stroke=%22none%22%20font-family=%22Georgia,Times%20New%20Roman,serif%22%20font-style=%22italic%22%20fill-opacity=%22.30%22%3E%3Ctext%20x=%22700%22%20y=%22125%22%20font-size=%2226%22%3Ex%C2%B2/a%C2%B2%20%2B%20y%C2%B2/b%C2%B2%20=%201%3C/text%3E%3Ctext%20x=%221070%22%20y=%22495%22%20font-size=%2224%22%3Ey%C2%B2%20=%202px%3C/text%3E%3Ctext%20x=%22780%22%20y=%22542%22%20font-size=%2222%22%3Ex%C2%B2/a%C2%B2%20%E2%88%92%20y%C2%B2/b%C2%B2%20=%201%3C/text%3E%3C/g%3E%3C/svg%3E")}
 </style>
 </head>
@@ -623,7 +647,7 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
 <a class="skip" href="#view">Bỏ qua, tới nội dung</a>
 <header class="bar" id="bar">
   <div class="bar-top gutter"><div class="inner">
-    <a class="brand" href="#about" aria-label="Trang chủ"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect class="bg" width="40" height="40" rx="10"/><path class="ax" d="M8 32V8M8 32h25M5.4 11.2 8 7.6l2.6 3.6M29.8 29.4 33.4 32l-3.6 2.6"/><ellipse class="el" cx="21" cy="19" rx="11.5" ry="6.2" transform="rotate(-30 21 19)"/><circle class="fc" cx="29.4" cy="14.1" r="1.9"/><circle class="fc" cx="12.6" cy="23.9" r="1.9"/></svg><span class="brand-t"><b id="brandT">Từ điển thuật ngữ</b><small id="brandS">Hình học giải tích · Anh–Việt</small></span></a>
+    <a class="brand" href="#about" aria-label="Trang chủ"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect class="bg" width="40" height="40" rx="10"/><path class="ax" d="M8 32V8M8 32h25M5.4 11.2 8 7.6l2.6 3.6M29.8 29.4 33.4 32l-3.6 2.6"/><ellipse class="el" cx="21" cy="19" rx="11.5" ry="6.2" transform="rotate(-30 21 19)"/><circle class="fc" cx="29.4" cy="14.1" r="1.9"/><circle class="fc" cx="12.6" cy="23.9" r="1.9"/></svg><span class="brand-t"><b id="brandT">Từ điển thuật ngữ</b><small id="brandS">Hình học giải tích · Anh–Việt</small></span><span class="brand-g" id="brandG" hidden></span></a>
     <nav class="tabs" role="tablist" id="tabs"></nav>
     <div class="bar-tools">
       <div class="seg" role="group" aria-label="Ngôn ngữ giao diện"><button id="langVi" aria-pressed="true">VI</button><button id="langEn" aria-pressed="false">EN</button></div>
@@ -708,7 +732,7 @@ const T = {
     secNone:"Mặt phẳng không cắt mặt", secPoint:"Cắt tại <b>một điểm</b>", secEllipse:"Thiết diện là <b>elip</b>",
     secCircle:"Thiết diện là <b>đường tròn</b>", secHyper:"Thiết diện là <b>hypebol</b>", secLines:"Thiết diện là <b>hai đường thẳng cắt nhau</b>",
     secParab:"Thiết diện là <b>parabol</b>", with:"với",
-    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm",fFac:"Khoa",fCourse:"Mã học phần", rand:"Mục ngẫu nhiên", recentH:"Xem gần đây", recentClear:"Xóa lịch sử", copyList:"Sao chép danh sách", dlList:"Tải CSV", exported:"Đã tải danh sách", skip:"Bỏ qua, tới nội dung", nfT:"Không có mục từ này", nfHint:(n,m)=>`Không có mục từ № ${n}. Danh sách gồm các mục từ từ 1 đến ${m}.`, goBrowse:"Mở danh sách tra cứu", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
+    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm",fFac:"Khoa",fCourse:"Mã học phần", introH:"Giới thiệu", rand:"Mục ngẫu nhiên", recentH:"Xem gần đây", recentClear:"Xóa lịch sử", copyList:"Sao chép danh sách", dlList:"Tải CSV", exported:"Đã tải danh sách", skip:"Bỏ qua, tới nội dung", nfT:"Không có mục từ này", nfHint:(n,m)=>`Không có mục từ № ${n}. Danh sách gồm các mục từ từ 1 đến ${m}.`, goBrowse:"Mở danh sách tra cứu", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
     tips:[
       "Gõ tên thuật ngữ rồi chọn một gợi ý (hoặc nhấn Enter) để mở trang riêng của thuật ngữ đó, có định nghĩa, ví dụ, nguồn và các mục cùng mục.",
       "Gõ <kbd class=\"k\">/</kbd> ở bất kỳ đâu để nhảy tới ô tìm kiếm. Tìm không dấu vẫn ra: <i>vecto</i> → vectơ, <i>tiem can</i> → tiệm cận.",
@@ -757,7 +781,7 @@ const T = {
     secNone:"The plane does not meet the surface", secPoint:"Meets it at <b>a single point</b>", secEllipse:"Section is an <b>ellipse</b>",
     secCircle:"Section is a <b>circle</b>", secHyper:"Section is a <b>hyperbola</b>", secLines:"Section is <b>two intersecting lines</b>",
     secParab:"Section is a <b>parabola</b>", with:"with",
-    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group",fFac:"Faculty",fCourse:"Course section ID", rand:"Random entry", recentH:"Recently viewed", recentClear:"Clear history", copyList:"Copy list", dlList:"Download CSV", exported:"List downloaded", skip:"Skip to content", nfT:"Entry not found", nfHint:(n,m)=>`There is no entry № ${n}. Entries are numbered 1 to ${m}.`, goBrowse:"Open the entry list", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
+    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group",fFac:"Faculty",fCourse:"Course section ID", introH:"About", rand:"Random entry", recentH:"Recently viewed", recentClear:"Clear history", copyList:"Copy list", dlList:"Download CSV", exported:"List downloaded", skip:"Skip to content", nfT:"Entry not found", nfHint:(n,m)=>`There is no entry № ${n}. Entries are numbered 1 to ${m}.`, goBrowse:"Open the entry list", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
     tips:[
       "Type a term and pick a suggestion (or press Enter) to open that term’s own page, with definition, example, sources and entries from the same section.",
       "Press <kbd class=\"k\">/</kbd> anywhere to jump to search. Accents are optional: <i>vecto</i> finds vectơ.",
@@ -788,7 +812,7 @@ const S = {
   quad:{id:"hyp1",a:1.4,b:1,c:1,secOn:true,h:0.35,rulings:false,auto:true}
 };
 let D=null, byN=new Map(), searchIdx=[];
-const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"",courseId:"",members:[]},window.HHGT_CONFIG||{});
+const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"αfein",courseId:"",members:[]},window.HHGT_CONFIG||{});
 const loc=(v,lg)=>{lg=lg||S.lang;if(v&&typeof v==="object"&&!Array.isArray(v))return String(v[lg]||v[lg==="vi"?"en":"vi"]||"");return v==null?"":String(v)};
 const loc2=v=>{if(v&&typeof v==="object"&&!Array.isArray(v)){const o=v[S.lang==="vi"?"en":"vi"],m=loc(v);return o&&o!==m?String(o):""}return ""};
 S.recent=(store.get("recent",[])||[]).filter(Number.isInteger).slice(0,8);
@@ -811,7 +835,7 @@ const NOASC=/^[acemnorsuvwxz]/;
 function vecHTML(n){
   const m=/^([A-Za-zα-ωΑ-Ω])([₀-₉ᵢₙₘ′’']*)(?:_([A-Za-z0-9]+))?$/.exec(n);
   if(m){ // một chữ cái: mũi tên chỉ đặt trên chữ cái, chỉ số/dấu phẩy đứng ngoài
-    const lc=NOASC.test(m[1])?" lc":"";
+    const lc=/^[ij]/.test(m[1])?" vdt":(NOASC.test(m[1])?" lc":"");
     return `<span class="vg"><span class="vec${lc}">${m[1]}</span>${m[2]}${m[3]?`<sub>${m[3]}</sub>`:""}</span>`;
   }
   const h=n.replace(/_([A-Za-z0-9]+)/g,(a,b)=>`<sub>${b}</sub>`); // tên nhiều chữ (AB, P₁P₂, 0…): mũi tên phủ cả tên
@@ -872,10 +896,13 @@ function renderChrome(){
   $("#q").placeholder=L.ph;$("#qGo").setAttribute("aria-label",L.searchGo);
   $("#brandT").textContent=L.brandT;$("#brandS").textContent=L.brandS;
   if(D){$("#mastTry").innerHTML=`<b>${L.tryH}</b>`+[122,67,258,264,273].map(n=>{const x=byN.get(n);return x?`<a href="#n${n}">${esc(splitTerm(S.lang==="en"?x.en:x.vi)[0])}</a>`:""}).join("")+`<a href="#" data-rand>${SHUF}${L.rand}</a>`}
-  $("#footL").textContent=L.footL;$("#footR").textContent=D?`${L.footR}: ${fmtDate(D.version)}`:"";
-  const meta=[[0,loc(CFG.university)],[0,loc(CFG.faculty)],[0,loc(CFG.class)],[0,loc(CFG.semester)],[L.fLect,loc(CFG.lecturer)],[L.fCourse,loc(CFG.courseId)]].filter(r=>r[1]);
+  $("#footL").textContent=L.footL+(CFG.group?` · ${L.fGroup} ${loc(CFG.group)}`:"");$("#footR").textContent=D?`${L.footR}: ${fmtDate(D.version)}`:"";
+  const meta=[[L.fGroup,loc(CFG.group)],[0,loc(CFG.university)],[0,loc(CFG.faculty)],[0,loc(CFG.class)],[0,loc(CFG.semester)],[L.fLect,loc(CFG.lecturer)],[L.fCourse,loc(CFG.courseId)]].filter(r=>r[1]);
   $("#mastMeta").innerHTML=meta.map(([a,x])=>`<span${isPh(x)?' class="ph"':""}>${a?`<i>${esc(a)}:</i> `:""}${esc(x)}</span>`).join("");
   $("#printHead").textContent=[L.kicker.replace(/^.*· /,""),...meta.filter(r=>!isPh(r[1])).map(([a,x])=>a?`${a}: ${x}`:x),D?fmtDate(D.version):""].filter(Boolean).join(" · ");
+  const gn=loc(CFG.group);
+  const kk=document.querySelector(".kicker");if(kk&&gn)kk.insertAdjacentHTML("beforeend",`<span class="gpill">${esc(gn)}</span>`);
+  const bg=$("#brandG");if(bg){bg.textContent=gn;bg.hidden=!gn}
   const sk=$(".skip");if(sk)sk.textContent=L.skip;
   document.title=S.lang==="en"?"English–Vietnamese Glossary · Analytic Geometry":"Từ điển thuật ngữ Anh–Việt · Hình học giải tích";
   if(D){
@@ -1264,6 +1291,19 @@ const TILE_ICON={
   quadrics:'<svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="4"/><path d="M12 3c4 3 4 15 0 18M12 3c-4 3-4 15 0 18"/></svg>',
   cards:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v10"/></svg>'
 };
+function introHTML(){
+  const en=S.lang==="en", g=loc(CFG.group), n=D.entries.length, nc=D.chapters.length;
+  const crs=loc(CFG.courseId), uni=loc(CFG.university);
+  let ps=loc(CFG.intro).split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);
+  if(!ps.length)ps=en?[
+    `An English–Vietnamese glossary of technical terms for the Analytic Geometry course${crs?` (${crs})`:""}, compiled by ${g?`group ${g}`:"our group"}${uni?` at ${uni}`:""}.`,
+    `It holds ${n} entries across ${nc} chapters: vector algebra, and the coordinate method in the plane and in space. Each entry gives the EN and VI terms, bilingual definitions and examples, sources, and where useful a figure or an interactive 3D model.`
+  ]:[
+    `Từ điển thuật ngữ Anh–Việt cho học phần Hình học giải tích${crs?` (${crs})`:""}, do ${g?`nhóm ${g}`:"nhóm chúng tôi"} biên soạn${uni?` tại ${uni}`:""}.`,
+    `Trang gồm ${n} mục từ của ${nc} chương: đại số vectơ, phương pháp tọa độ trên mặt phẳng và trong không gian. Mỗi mục có thuật ngữ EN–VI, định nghĩa và ví dụ song ngữ, nguồn tham khảo và, khi cần, hình minh họa hoặc mô hình 3D tương tác.`
+  ];
+  return `<section class="hsec"><h2>${t().introH}</h2><div class="intro">${g?`<div class="gbadge"><small>${t().fGroup}</small><b>${esc(g)}</b></div>`:""}<div class="intro-t">${ps.map(x=>`<p>${esc(x)}</p>`).join("")}</div></div></section>`;
+}
 function renderAbout(){
   const L=t(), en=S.lang==="en";
   const conv=D.conventions[S.lang].filter(c=>c.label!=="Nguồn"&&c.label!=="Sources").map(c=>`<dt>${esc(c.label)}</dt><dd>${rich(c.text)}</dd>`).join("");
@@ -1271,6 +1311,7 @@ function renderAbout(){
   const tiles=[["browse",L.tabs.browse,L.tileBrowse],["index",L.tabs.index,L.tileIndex],["quadrics",L.tabs.quadrics,L.tileQuad],["cards",L.tabs.cards,L.tileCards]]
     .map(([k,a,b])=>`<button class="tile" data-gov="${k}"><span class="ti">${TILE_ICON[k]}</span><b>${a}</b><span>${b}</span></button>`).join("");
   view.innerHTML=`<div class="home">
+    ${introHTML()}
     <section class="hsec" id="conv"><h2>${L.homeConvH}</h2>
       <div class="hgrid">
         <div><h3>${L.aboutH}</h3><dl class="conv">${conv}</dl></div>
