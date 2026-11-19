@@ -693,7 +693,7 @@ const T = {
     secNone:"Mặt phẳng không cắt mặt", secPoint:"Cắt tại <b>một điểm</b>", secEllipse:"Thiết diện là <b>elip</b>",
     secCircle:"Thiết diện là <b>đường tròn</b>", secHyper:"Thiết diện là <b>hypebol</b>", secLines:"Thiết diện là <b>hai đường thẳng cắt nhau</b>",
     secParab:"Thiết diện là <b>parabol</b>", with:"với",
-    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
+    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm",fFac:"Khoa",fCourse:"Mã học phần", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
     tips:[
       "Gõ tên thuật ngữ rồi chọn một gợi ý (hoặc nhấn Enter) để mở trang riêng của thuật ngữ đó, có định nghĩa, ví dụ, nguồn và các mục cùng mục.",
       "Gõ <kbd class=\"k\">/</kbd> ở bất kỳ đâu để nhảy tới ô tìm kiếm. Tìm không dấu vẫn ra: <i>vecto</i> → vectơ, <i>tiem can</i> → tiệm cận.",
@@ -742,7 +742,7 @@ const T = {
     secNone:"The plane does not meet the surface", secPoint:"Meets it at <b>a single point</b>", secEllipse:"Section is an <b>ellipse</b>",
     secCircle:"Section is a <b>circle</b>", secHyper:"Section is a <b>hyperbola</b>", secLines:"Section is <b>two intersecting lines</b>",
     secParab:"Section is a <b>parabola</b>", with:"with",
-    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
+    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group",fFac:"Faculty",fCourse:"Course section ID", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
     tips:[
       "Type a term and pick a suggestion (or press Enter) to open that term’s own page, with definition, example, sources and entries from the same section.",
       "Press <kbd class=\"k\">/</kbd> anywhere to jump to search. Accents are optional: <i>vecto</i> finds vectơ.",
@@ -773,7 +773,7 @@ const S = {
   quad:{id:"hyp1",a:1.4,b:1,c:1,secOn:true,h:0.35,rulings:false,auto:true}
 };
 let D=null, byN=new Map(), searchIdx=[];
-const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"",members:[]},window.HHGT_CONFIG||{});
+const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"",courseId:"",members:[]},window.HHGT_CONFIG||{});
 const isPh=s=>/^\s*\[.*\]\s*$/.test(s||"");
 const fmtDate=iso=>{const m=/^(\d{4})-(\d\d)-(\d\d)/.exec(iso||"");return m?`${m[3]}/${m[2]}/${m[1]}`:""};
 const $=(s,r=document)=>r.querySelector(s);
@@ -1208,7 +1208,7 @@ function renderIndex(){
 
 function teamHTML(){
   const L=t(), v=(s)=>`<span${isPh(s)?' class="ph"':""}>${esc(s)}</span>`;
-  const facts=[[L.fUni,CFG.university],[L.fClass,CFG.class],[L.fLect,CFG.lecturer],[L.fSem,CFG.semester],[L.fGroup,CFG.group]].filter(r=>r[1]);
+  const facts=[[L.fUni,CFG.university],[L.fFac,CFG.faculty],[L.fClass,CFG.class],[L.fLect,CFG.lecturer],[L.fSem,CFG.semester],[L.fCourse,CFG.courseId],[L.fGroup,CFG.group]].filter(r=>r[1]);
   const mem=(CFG.members||[]).filter(Boolean);
   if(!facts.length&&!mem.length)return "";
   return `<section class="hsec"><h2>${L.teamH}</h2>`+(facts.length?`<dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${v(b)}</dd>`).join("")}</dl>`:"")+(mem.length?`<ul class="team">${mem.map(m=>`<li>${v(m)}</li>`).join("")}</ul>`:"")+`</section>`;
