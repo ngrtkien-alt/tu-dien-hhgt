@@ -11,7 +11,7 @@ window.HHGT_CONFIG = {
   class:      "Class 52.01.SPTOAN.SN",                         // ví dụ: "Lớp Sư phạm Toán K50"
   lecturer:   "PhD Nguyễn Lê Chí Quyết",
   semester:   "Semester 1, 2026-2027",             // ví dụ: "Học kỳ 1, 2026–2027"
-  group:      "MATHE1405",
+  courseID:      "MATHE1405",
   members: [
     "Nguyễn Trung Kiên",
     "Trần Ngọc Thái Hòa",
