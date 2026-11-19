@@ -1,17 +1,29 @@
-/* ============================================================
-   THÔNG TIN NHÓM — chỉ cần sửa file này.
-   - Giữ nguyên dấu nháy kép "..." và dấu phẩy ở cuối mỗi dòng.
-   - Dòng nào để trống "" thì website tự ẩn dòng đó.
-   - Chữ nằm trong [ngoặc vuông] hiện khung nét đứt để nhắc bạn chưa điền;
-     điền xong (bỏ ngoặc vuông) thì khung biến mất.
-   ============================================================ */
+/* ====== THÔNG TIN NHÓM ======
+   Mỗi mục có thể viết 1 chuỗi (hiện cho cả hai ngôn ngữ)
+   hoặc { vi: "...", en: "..." } để hiện theo ngôn ngữ giao diện.
+   Giữ nguyên dấu ngoặc, dấu phẩy và dấu ngoặc kép. */
 window.HHGT_CONFIG = {
-  university: "Ho Chi Minh City University of Education",
-  faculty:    "Mathematics and Informatics",                              // ví dụ: "Khoa Toán – Tin học"
-  class:      "Class 52.01.SPTOAN.SN",                         // ví dụ: "Lớp Sư phạm Toán K50"
-  lecturer:   "PhD Nguyễn Lê Chí Quyết",
-  semester:   "Semester 1, 2026-2027",             // ví dụ: "Học kỳ 1, 2026–2027"
-  courseID:      "MATHE1405",
+  university: {
+    vi: "Trường Đại học Sư phạm Thành phố Hồ Chí Minh",
+    en: "Ho Chi Minh City University of Education"
+  },
+  faculty: {
+    vi: "Khoa Toán – Tin học",
+    en: "Faculty of Mathematics and Informatics"
+  },
+  class: {
+    vi: "Lớp 52.01.SPTOAN.SN",
+    en: "Class 52.01.SPTOAN.SN"
+  },
+  lecturer: {
+    vi: "TS. Nguyễn Lê Chí Quyết",
+    en: "Dr. Nguyễn Lê Chí Quyết"
+  },
+  semester: {
+    vi: "Học kỳ 1, năm học 2026–2027",
+    en: "Semester 1, 2026–2027"
+  },
+  courseId: "MATHE1405",
   members: [
     "Nguyễn Trung Kiên",
     "Trần Ngọc Thái Hòa",

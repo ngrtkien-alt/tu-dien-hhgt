@@ -601,6 +601,21 @@ footer .inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-bet
   .fig svg{max-width:340px}
 }
 
+.mast-sub .subi{display:inline-block;margin-right:1.4rem}
+.mast-sub .subi:last-child{margin-right:0}
+@media (max-width:760px){.mast-sub .subi{display:block;margin-right:0}}
+
+/* --- v4.1: thông tin nhóm song ngữ, ngẫu nhiên, gần đây, xuất danh sách --- */
+.mast-meta i{font-style:normal;opacity:.72}
+.facts dd .alt{display:block;font-size:.84rem;color:var(--ink-2);margin-top:.15rem}
+.tb-r{display:flex;flex-wrap:wrap;gap:8px}
+.recent{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.recent .clr{background:none;border:0;color:var(--ink-2);text-decoration:underline;cursor:pointer;font:inherit;font-size:.84rem;padding:.45rem .6rem}
+.mast-try a svg{width:14px;height:14px;vertical-align:-2px;margin-right:6px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.nf-act{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+#view:focus{outline:none}
+@media print{.recent,.tb-r{display:none!important}}
+
 :root{--mathbg:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%201200%20560%22%20preserveAspectRatio=%22xMaxYMid%20slice%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-linecap=%22round%22%3E%3Cg%20stroke-opacity=%22.20%22%20stroke-width=%221.4%22%3E%3Cpath%20d=%22M120%20290H1180M820%2030V530%22/%3E%3C/g%3E%3Cpath%20d=%22M180%20285v10M260%20285v10M340%20285v10M420%20285v10M500%20285v10M580%20285v10M660%20285v10M740%20285v10M900%20285v10M980%20285v10M1060%20285v10M1140%20285v10M815%2050h10M815%20130h10M815%20210h10M815%20370h10M815%20450h10%22%20stroke-opacity=%22.22%22%20stroke-width=%221.2%22/%3E%3Cg%20transform=%22rotate(-16%20820%20290)%22%3E%3Cellipse%20cx=%22820%22%20cy=%22290%22%20rx=%22250%22%20ry=%22128%22%20stroke-opacity=%22.42%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M570%20290H1070%22%20stroke-opacity=%22.25%22%20stroke-dasharray=%226%206%22/%3E%3Ccircle%20cx=%22605%22%20cy=%22290%22%20r=%225%22%20fill=%22%23A8D0FF%22%20stroke=%22none%22%20fill-opacity=%22.9%22/%3E%3Ccircle%20cx=%221035%22%20cy=%22290%22%20r=%225%22%20fill=%22%23A8D0FF%22%20stroke=%22none%22%20fill-opacity=%22.9%22/%3E%3C/g%3E%3Cpath%20d=%22M707.5%20303.5%20L688.0%20321.3%20L670.4%20337.5%20L654.7%20352.2%20L640.6%20365.7%20L628.0%20378.1%20L616.7%20389.4%20L606.8%20399.9%20L598.0%20409.5%20L590.3%20418.4%20L583.6%20426.7%20L577.9%20434.5%20L573.0%20441.8%20L568.9%20448.7%20L565.7%20455.4%20L563.2%20461.7%20L561.4%20467.9%20L560.4%20474.0%20L560.0%20480.0%20L560.4%20486.0%20L561.4%20492.1%20L563.2%20498.3%20L565.7%20504.6%20L568.9%20511.3%20L573.0%20518.2%20L577.9%20525.5%20L583.6%20533.3%20L590.3%20541.6%20L598.0%20550.5%20L606.8%20560.1%20L616.7%20570.6%20L628.0%20581.9%20L640.6%20594.3%20L654.7%20607.8%20L670.4%20622.5%20L688.0%20638.7%20L707.5%20656.5%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cpath%20d=%22M272.5%20303.5%20L292.0%20321.3%20L309.6%20337.5%20L325.3%20352.2%20L339.4%20365.7%20L352.0%20378.1%20L363.3%20389.4%20L373.2%20399.9%20L382.0%20409.5%20L389.7%20418.4%20L396.4%20426.7%20L402.1%20434.5%20L407.0%20441.8%20L411.1%20448.7%20L414.3%20455.4%20L416.8%20461.7%20L418.6%20467.9%20L419.6%20474.0%20L420.0%20480.0%20L419.6%20486.0%20L418.6%20492.1%20L416.8%20498.3%20L414.3%20504.6%20L411.1%20511.3%20L407.0%20518.2%20L402.1%20525.5%20L396.4%20533.3%20L389.7%20541.6%20L382.0%20550.5%20L373.2%20560.1%20L363.3%20570.6%20L352.0%20581.9%20L339.4%20594.3%20L325.3%20607.8%20L309.6%20622.5%20L292.0%20638.7%20L272.5%20656.5%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cpath%20d=%22M794.0%20351.0%20L812.0%20301.4%20L830.0%20256.0%20L848.0%20215.0%20L866.0%20178.2%20L884.0%20145.8%20L902.0%20117.8%20L920.0%2094.0%20L938.0%2074.6%20L956.0%2059.4%20L974.0%2048.6%20L992.0%2042.2%20L1010.0%2040.0%20L1028.0%2042.2%20L1046.0%2048.6%20L1064.0%2059.4%20L1082.0%2074.6%20L1100.0%2094.0%20L1118.0%20117.8%20L1136.0%20145.8%20L1154.0%20178.2%20L1172.0%20215.0%20L1190.0%20256.0%20L1208.0%20301.4%20L1226.0%20351.0%22%20stroke-opacity=%22.30%22%20stroke-width=%221.8%22/%3E%3Cg%20fill=%22%23fff%22%20stroke=%22none%22%20font-family=%22Georgia,Times%20New%20Roman,serif%22%20font-style=%22italic%22%20fill-opacity=%22.30%22%3E%3Ctext%20x=%22700%22%20y=%22125%22%20font-size=%2226%22%3Ex%C2%B2/a%C2%B2%20%2B%20y%C2%B2/b%C2%B2%20=%201%3C/text%3E%3Ctext%20x=%221070%22%20y=%22495%22%20font-size=%2224%22%3Ey%C2%B2%20=%202px%3C/text%3E%3Ctext%20x=%22780%22%20y=%22542%22%20font-size=%2222%22%3Ex%C2%B2/a%C2%B2%20%E2%88%92%20y%C2%B2/b%C2%B2%20=%201%3C/text%3E%3C/g%3E%3C/svg%3E")}
 </style>
 </head>
@@ -679,7 +694,7 @@ const T = {
     inDef:"khớp trong định nghĩa", chShort:"Ch.",
     sgAll:(n)=>`Xem tất cả ${n} kết quả →`, sameSec:"Cùng mục", prev:"Trước", next:"Sau", model3d:"Mô hình 3D", fig:"Hình minh họa", copyLink:"Sao chép liên kết", linkCopied:"Đã sao chép liên kết",
     goBrowse:"Bắt đầu tra cứu →", srcH:"Nguồn tư liệu",
-    srcList:[["Giáo trình Chương 2","tài liệu của học phần Hình học giải tích cho Chương 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","tài liệu học phần do các anh chị khóa trước soạn theo giao của thầy, đã được thầy đồng ý cho sử dụng (số trang theo bản in của tiểu luận)."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (số trang theo bản in)."],["Smith & Gale (1904)","P. F. Smith và A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston; số trang là số trang in trong sách."],["Tài liệu tham khảo khác","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): các giáo trình và từ điển tham khảo."]],
+    srcList:[["Giáo trình Chương 2","tài liệu của học phần Hình học giải tích cho Chương 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","tài liệu của nhóm sinh viên khóa trước trong học phần Hình học giải tích (lớp học phần 2511MATH1405104), được giảng viên đồng ý cho sử dụng; số trang theo bản in của tiểu luận."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (số trang theo bản in)."],["Smith & Gale (1904)","P. F. Smith và A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston; số trang là số trang in trong sách."],["Tài liệu tham khảo khác","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): các giáo trình và từ điển tham khảo."]],
     idxEnVi:"EN → VI", idxViEn:"VI → EN", colTerm:"Thuật ngữ", colEq:"Tương ứng", colN:"Mục",
     idxCount:(n)=>`${n} thuật ngữ`,
     savedEmpty:"Chưa có thuật ngữ nào được lưu", savedHint:"Bấm ngôi sao cạnh một mục để lưu lại. Danh sách chỉ nằm trên trình duyệt này.",
@@ -693,7 +708,7 @@ const T = {
     secNone:"Mặt phẳng không cắt mặt", secPoint:"Cắt tại <b>một điểm</b>", secEllipse:"Thiết diện là <b>elip</b>",
     secCircle:"Thiết diện là <b>đường tròn</b>", secHyper:"Thiết diện là <b>hypebol</b>", secLines:"Thiết diện là <b>hai đường thẳng cắt nhau</b>",
     secParab:"Thiết diện là <b>parabol</b>", with:"với",
-    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm",fFac:"Khoa",fCourse:"Mã học phần", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
+    aboutH:"Quy ước trình bày", tipsH:"Cách dùng", teamH:"Nhóm thực hiện", fUni:"Trường", fClass:"Lớp", fLect:"Giảng viên", fSem:"Học kỳ", fGroup:"Nhóm",fFac:"Khoa",fCourse:"Mã học phần", rand:"Mục ngẫu nhiên", recentH:"Xem gần đây", recentClear:"Xóa lịch sử", copyList:"Sao chép danh sách", dlList:"Tải CSV", exported:"Đã tải danh sách", skip:"Bỏ qua, tới nội dung", nfT:"Không có mục từ này", nfHint:(n,m)=>`Không có mục từ № ${n}. Danh sách gồm các mục từ từ 1 đến ${m}.`, goBrowse:"Mở danh sách tra cứu", fUpd:"Cập nhật dữ liệu", print:"In / Lưu PDF", printOne:"In mục này", printAll:"Bản in gồm toàn bộ mục đang hiển thị.",
     tips:[
       "Gõ tên thuật ngữ rồi chọn một gợi ý (hoặc nhấn Enter) để mở trang riêng của thuật ngữ đó, có định nghĩa, ví dụ, nguồn và các mục cùng mục.",
       "Gõ <kbd class=\"k\">/</kbd> ở bất kỳ đâu để nhảy tới ô tìm kiếm. Tìm không dấu vẫn ra: <i>vecto</i> → vectơ, <i>tiem can</i> → tiệm cận.",
@@ -728,7 +743,7 @@ const T = {
     inDef:"matched in definition", chShort:"Ch.",
     sgAll:(n)=>`See all ${n} results →`, sameSec:"Same section", prev:"Previous", next:"Next", model3d:"3D model", fig:"Illustration", copyLink:"Copy link", linkCopied:"Link copied",
     goBrowse:"Start searching →", srcH:"Sources",
-    srcList:[["Giáo trình Chương 2","the course text for Chapter 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","a course document written by earlier cohorts at the lecturer’s assignment and approved by him for use (page numbers follow the printed essay)."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (printed page numbers)."],["Smith & Gale (1904)","P. F. Smith and A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston (printed page numbers)."],["Other references","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): reference textbooks and dictionaries."]],
+    srcList:[["Giáo trình Chương 2","the course text for Chapter 2."],["Tiểu luận Hình học giải tích - 2511MATH1405104 - Nhóm 4","an essay by a group of students from the previous cohort in the Analytic Geometry course (section 2511MATH1405104), used with the lecturer’s permission; page numbers follow the printed essay."],["Downing (2009)","Dictionary of Mathematics Terms, 3rd ed., Barron’s (printed page numbers)."],["Smith & Gale (1904)","P. F. Smith and A. S. Gale, Introduction to Analytic Geometry, Ginn & Company, Boston (printed page numbers)."],["Other references","Vaisman (1997), Pogorelov (1980), Agnew (1962), Efimov, Axler, James & James (1992), Gallier (2001): reference textbooks and dictionaries."]],
     idxEnVi:"EN → VI", idxViEn:"VI → EN", colTerm:"Term", colEq:"Equivalent", colN:"Entry",
     idxCount:(n)=>`${n} terms`,
     savedEmpty:"No saved terms yet", savedHint:"Tap the star next to an entry to save it. The list stays in this browser only.",
@@ -742,7 +757,7 @@ const T = {
     secNone:"The plane does not meet the surface", secPoint:"Meets it at <b>a single point</b>", secEllipse:"Section is an <b>ellipse</b>",
     secCircle:"Section is a <b>circle</b>", secHyper:"Section is a <b>hyperbola</b>", secLines:"Section is <b>two intersecting lines</b>",
     secParab:"Section is a <b>parabola</b>", with:"with",
-    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group",fFac:"Faculty",fCourse:"Course section ID", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
+    aboutH:"Conventions", tipsH:"How to use", teamH:"Team", fUni:"University", fClass:"Class", fLect:"Lecturer", fSem:"Semester", fGroup:"Group",fFac:"Faculty",fCourse:"Course section ID", rand:"Random entry", recentH:"Recently viewed", recentClear:"Clear history", copyList:"Copy list", dlList:"Download CSV", exported:"List downloaded", skip:"Skip to content", nfT:"Entry not found", nfHint:(n,m)=>`There is no entry № ${n}. Entries are numbered 1 to ${m}.`, goBrowse:"Open the entry list", fUpd:"Data updated", print:"Print / Save PDF", printOne:"Print this entry", printAll:"The printout contains every entry currently listed.",
     tips:[
       "Type a term and pick a suggestion (or press Enter) to open that term’s own page, with definition, example, sources and entries from the same section.",
       "Press <kbd class=\"k\">/</kbd> anywhere to jump to search. Accents are optional: <i>vecto</i> finds vectơ.",
@@ -774,6 +789,10 @@ const S = {
 };
 let D=null, byN=new Map(), searchIdx=[];
 const CFG=Object.assign({university:"",faculty:"",class:"",lecturer:"",semester:"",group:"",courseId:"",members:[]},window.HHGT_CONFIG||{});
+const loc=(v,lg)=>{lg=lg||S.lang;if(v&&typeof v==="object"&&!Array.isArray(v))return String(v[lg]||v[lg==="vi"?"en":"vi"]||"");return v==null?"":String(v)};
+const loc2=v=>{if(v&&typeof v==="object"&&!Array.isArray(v)){const o=v[S.lang==="vi"?"en":"vi"],m=loc(v);return o&&o!==m?String(o):""}return ""};
+S.recent=(store.get("recent",[])||[]).filter(Number.isInteger).slice(0,8);
+const pushRecent=n=>{S.recent=[n,...S.recent.filter(x=>x!==n)].slice(0,8);store.set("recent",S.recent)};
 const isPh=s=>/^\s*\[.*\]\s*$/.test(s||"");
 const fmtDate=iso=>{const m=/^(\d{4})-(\d\d)-(\d\d)/.exec(iso||"");return m?`${m[3]}/${m[2]}/${m[1]}`:""};
 const $=(s,r=document)=>r.querySelector(s);
@@ -783,6 +802,7 @@ const t=()=>T[S.lang];
 /* ================= helpers ================= */
 const NO=n=>`N<span class="no-o">o</span>&nbsp;${n}`;
 const PRINT_ICON='<svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>';
+const SHUF='<svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 7h3c5 0 7 10 12 10h3M3 17h3c1.6 0 2.9-.6 4-1.6M21 7h-3c-1.6 0-2.9.6-4 1.6M18 4l3 3-3 3M18 14l3 3-3 3"/></svg>';
 const PRINT_BTN=()=>`<button class="btn" data-print="all">${PRINT_ICON}${t().print}</button>`;
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 /* ---- ký hiệu vectơ: dữ liệu đánh dấu ⟦tên⟧ → có mũi tên trên đầu ---- */
@@ -848,14 +868,15 @@ function renderChrome(){
   const L=t();
   document.querySelectorAll("[data-i]").forEach(el=>{el.innerHTML=L[el.dataset.i]});
   $("#mastTitle").innerHTML=L.title;
-  $("#mastSub").textContent=L.sub;
+  $("#mastSub").innerHTML=L.sub.split(" — ").map(x=>`<span class="subi">${esc(x)}</span>`).join("");
   $("#q").placeholder=L.ph;$("#qGo").setAttribute("aria-label",L.searchGo);
   $("#brandT").textContent=L.brandT;$("#brandS").textContent=L.brandS;
-  if(D){$("#mastTry").innerHTML=`<b>${L.tryH}</b>`+[122,67,258,264,273].map(n=>{const x=byN.get(n);return x?`<a href="#n${n}">${esc(splitTerm(S.lang==="en"?x.en:x.vi)[0])}</a>`:""}).join("")}
+  if(D){$("#mastTry").innerHTML=`<b>${L.tryH}</b>`+[122,67,258,264,273].map(n=>{const x=byN.get(n);return x?`<a href="#n${n}">${esc(splitTerm(S.lang==="en"?x.en:x.vi)[0])}</a>`:""}).join("")+`<a href="#" data-rand>${SHUF}${L.rand}</a>`}
   $("#footL").textContent=L.footL;$("#footR").textContent=D?`${L.footR}: ${fmtDate(D.version)}`:"";
-  const meta=[CFG.university,CFG.faculty,CFG.class,CFG.semester].filter(Boolean);
-  $("#mastMeta").innerHTML=meta.map(x=>`<span${isPh(x)?' class="ph"':""}>${esc(x)}</span>`).join("");
-  $("#printHead").textContent=[L.kicker.replace(/^.*· /,""),...meta.filter(x=>!isPh(x)),D?fmtDate(D.version):""].filter(Boolean).join(" · ");
+  const meta=[[0,loc(CFG.university)],[0,loc(CFG.faculty)],[0,loc(CFG.class)],[0,loc(CFG.semester)],[L.fLect,loc(CFG.lecturer)],[L.fCourse,loc(CFG.courseId)]].filter(r=>r[1]);
+  $("#mastMeta").innerHTML=meta.map(([a,x])=>`<span${isPh(x)?' class="ph"':""}>${a?`<i>${esc(a)}:</i> `:""}${esc(x)}</span>`).join("");
+  $("#printHead").textContent=[L.kicker.replace(/^.*· /,""),...meta.filter(r=>!isPh(r[1])).map(([a,x])=>a?`${a}: ${x}`:x),D?fmtDate(D.version):""].filter(Boolean).join(" · ");
+  const sk=$(".skip");if(sk)sk.textContent=L.skip;
   document.title=S.lang==="en"?"English–Vietnamese Glossary · Analytic Geometry":"Từ điển thuật ngữ Anh–Việt · Hình học giải tích";
   if(D){
     $("#stats").innerHTML=[[D.entries.length,L.sEntries],[D.lookupEnVi.length,L.sEn],[D.lookupViEn.length,L.sVi],[D.chapters.length,L.sChap]]
@@ -881,7 +902,8 @@ function route(){
   if(!D)return;
   if(curHash!==null)scrollMap[curHash]=window.scrollY;
   const h=(location.hash||"").slice(1), m=h.match(/^n(\d+)$/);
-  if(m&&byN.has(+m[1])){S.view="entry";S.cur=+m[1]}
+  if(m&&byN.has(+m[1])){S.view="entry";S.cur=+m[1];pushRecent(S.cur)}
+  else if(m){S.view="nf";S.nfN=+m[1]}
   else S.view=VIEWS.includes(h)?h:"about";
   curHash=h;
   hideSugg();stopQuad();placeSearch();renderChrome();render();
@@ -1042,7 +1064,8 @@ function entryClick(ev){
       if(S.view==="saved")render();else act.setAttribute("aria-pressed",S.favs.has(n));
       break;
     case "speak":speak(cleanEn(e.en));break;
-    case "copy":copyText(`${e.en} — ${e.vi}`);break;
+    case "copy":copyText(`${strip(e.en)} — ${strip(e.vi)}`);break;
+    case "rand":randomEntry();break;
     case "link":copyText(location.href.split("#")[0]+"#n"+n);break;
     case "print":window.print();break;
   }
@@ -1085,6 +1108,7 @@ function renderEntry(){
         <button class="btn" data-act="copy">${ICON.copy}${L.copy}</button>
         <button class="btn" data-act="link">${ICON.link}${L.copyLink}</button>
         <button class="btn" data-act="print">${PRINT_ICON}${L.print.split(" / ")[0]}</button>
+        <button class="btn" data-act="rand">${SHUF}${L.rand}</button>
       </div>
     </header>
     <div class="ep-body${fg?" has-fig":""}">
@@ -1110,7 +1134,7 @@ function render(){
   if(!D)return;
   stopQuad();
   document.body.dataset.view=S.view;
-  ({about:renderAbout,browse:renderBrowse,index:renderIndex,quadrics:()=>renderQuad(),cards:renderCards,saved:renderSaved,entry:renderEntry})[S.view]();
+  ({about:renderAbout,browse:renderBrowse,index:renderIndex,quadrics:()=>renderQuad(),cards:renderCards,saved:renderSaved,entry:renderEntry,nf:renderNF})[S.view]();
   setBar();
 }
 
@@ -1182,8 +1206,28 @@ function renderSaved(){
   let list=[...S.favs].map(n=>byN.get(n)).filter(Boolean).sort((a,b)=>a.n-b.n);
   if(qn){const ok=new Set(search(S.q).map(r=>r.e.n));list=list.filter(e=>ok.has(e.n))}
   view.innerHTML=list.length
-    ?`<div class="toolbar"><p>${L.showing(list.length)}</p>${PRINT_BTN()}</div><div class="entries" id="list">${list.map(e=>rowHTML(e,qn,false)).join("")}</div>`
+    ?`<div class="toolbar"><p>${L.showing(list.length)}</p><div class="tb-r"><button class="btn" data-sv="copy">${ICON.copy}${L.copyList}</button><button class="btn" data-sv="csv"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>${L.dlList}</button>${PRINT_BTN()}</div></div><div class="entries" id="list">${list.map(e=>rowHTML(e,qn,false)).join("")}</div>`
     :`<div class="empty"><strong>${L.savedEmpty}</strong>${L.savedHint}</div>`;
+}
+
+function exportSaved(kind){
+  const list=[...S.favs].map(n=>byN.get(n)).filter(Boolean).sort((a,b)=>a.n-b.n);if(!list.length)return;
+  if(kind==="copy"){copyText(list.map(e=>`${e.n}. ${strip(e.en)} — ${strip(e.vi)}`).join("\n"));return}
+  const q=x=>'"'+String(x).replace(/"/g,'""')+'"';
+  const rows=[["No","EN","VI","Chapter","Section"],...list.map(e=>[e.n,strip(e.en),strip(e.vi),e.chapter,e.section])];
+  const csv="\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="hhgt-muc-tu-da-luu.csv";
+  document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},600);toast(t().exported);
+}
+function randomEntry(){
+  const cur=S.view==="entry"?S.cur:0;let n;
+  do{n=D.entries[Math.floor(Math.random()*D.entries.length)].n}while(n===cur&&D.entries.length>1);
+  openEntry(n);
+}
+function renderNF(){
+  const L=t();document.title=L.nfT+" · "+L.brandT;
+  const max=Math.max(...D.entries.map(e=>e.n));
+  view.innerHTML=`<div class="empty"><strong>${L.nfT}</strong>${L.nfHint(S.nfN,max)}<div class="nf-act"><button class="btn" data-gov="browse">${L.goBrowse}</button><button class="btn" data-rand>${SHUF}${L.rand}</button></div></div>`;
 }
 
 function letterOf(s,dir){
@@ -1208,10 +1252,11 @@ function renderIndex(){
 
 function teamHTML(){
   const L=t(), v=(s)=>`<span${isPh(s)?' class="ph"':""}>${esc(s)}</span>`;
-  const facts=[[L.fUni,CFG.university],[L.fFac,CFG.faculty],[L.fClass,CFG.class],[L.fLect,CFG.lecturer],[L.fSem,CFG.semester],[L.fCourse,CFG.courseId],[L.fGroup,CFG.group]].filter(r=>r[1]);
-  const mem=(CFG.members||[]).filter(Boolean);
+  const og=S.lang==="vi"?"en":"vi";
+  const facts=[[L.fUni,CFG.university],[L.fFac,CFG.faculty],[L.fClass,CFG.class],[L.fLect,CFG.lecturer],[L.fSem,CFG.semester],[L.fCourse,CFG.courseId],[L.fGroup,CFG.group]].map(([a,b])=>[a,loc(b),loc2(b)]).filter(r=>r[1]);
+  const mem=(CFG.members||[]).map(m=>loc(m)).filter(Boolean);
   if(!facts.length&&!mem.length)return "";
-  return `<section class="hsec"><h2>${L.teamH}</h2>`+(facts.length?`<dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${v(b)}</dd>`).join("")}</dl>`:"")+(mem.length?`<ul class="team">${mem.map(m=>`<li>${v(m)}</li>`).join("")}</ul>`:"")+`</section>`;
+  return `<section class="hsec"><h2>${L.teamH}</h2>`+(facts.length?`<dl class="facts">${facts.map(([a,b,c])=>`<dt>${a}</dt><dd>${v(b)}${c?`<span class="alt" lang="${og}">${esc(c)}</span>`:""}</dd>`).join("")}</dl>`:"")+(mem.length?`<ul class="team">${mem.map(m=>`<li>${v(m)}</li>`).join("")}</ul>`:"")+`</section>`;
 }
 const TILE_ICON={
   browse:'<svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>',
@@ -1231,6 +1276,7 @@ function renderAbout(){
         <div><h3>${L.aboutH}</h3><dl class="conv">${conv}</dl></div>
         <div><h3>${L.srcH}</h3><ul class="srcs">${L.srcList.map(([a,b])=>`<li><b>${esc(a)}</b>: ${esc(b)}</li>`).join("")}</ul></div>
       </div></section>
+    ${S.recent.length?`<section class="hsec"><h2>${L.recentH}</h2><div class="recent">${S.recent.map(n=>byN.get(n)).filter(Boolean).map(x=>`<button class="chip" data-go="${x.n}"><b>#${x.n}</b>${esc(splitTerm(en?x.en:x.vi)[0])}</button>`).join("")}<button class="clr" data-clr-recent>${L.recentClear}</button></div></section>`:""}
     <section class="hsec"><h2>${L.browseCh}</h2><div class="ccs">${ccs}</div></section>
     <section class="hsec"><h2>${L.toolsH}</h2><div class="tiles">${tiles}</div></section>
     ${teamHTML()}
@@ -1477,6 +1523,9 @@ window.addEventListener("afterprint",afterPrint);
 function printAll(){S.printing=true;render();setTimeout(()=>window.print(),60)}
 view.addEventListener("click",ev=>{
   if(ev.target.closest("[data-print]")){printAll();return}
+  if(ev.target.closest("[data-rand]")){ev.preventDefault();randomEntry();return}
+  if(ev.target.closest("[data-clr-recent]")){S.recent=[];store.set("recent",[]);render();return}
+  const sv=ev.target.closest("[data-sv]");if(sv){exportSaved(sv.dataset.sv);return}
   const gv=ev.target.closest("[data-gov]");if(gv){go(gv.dataset.gov);return}
   const fl=ev.target.closest("[data-flt]");
   if(fl){const [c,sc]=fl.dataset.flt.split("|");S.chapter=+c;S.section=sc;S.q="";go("browse");return}
@@ -1484,6 +1533,8 @@ view.addEventListener("click",ev=>{
   if(g){openEntry(+g.dataset.go);return}
   if(ev.target.closest("[data-act]"))entryClick(ev);
 });
+$("#mastTry").addEventListener("click",ev=>{if(ev.target.closest("[data-rand]")){ev.preventDefault();if(D)randomEntry()}});
+document.addEventListener("click",ev=>{const k=ev.target.closest(".skip");if(!k)return;ev.preventDefault();view.setAttribute("tabindex","-1");view.focus({preventScroll:true});window.scrollTo({top:Math.max(0,$("main").offsetTop-$("#bar").offsetHeight)})});
 window.addEventListener("hashchange",route);
 renderChrome();
 if(window.HHGT_DATA)boot(window.HHGT_DATA);
